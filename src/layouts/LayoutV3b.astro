@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Courtney Bigony — Human Potential Expert helping tech companies build technology that helps people thrive.' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://courtney-bigony-website-v3.vercel.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://courtney-bigony-website-v3.vercel.app/og-image.jpg" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" href="https://rsms.me/inter/inter.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://rsms.me/inter/inter.css" /></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+    <link rel="preload" as="image" href="/images/headshots/hero-3-mobile-v2.webp" media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/headshots/hero-3.webp" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="160x160" href="/favicon-160.png" />
+    <link rel="apple-touch-icon" href="/favicon-160.png" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /></noscript>
+    <script is:inline defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    <script is:inline defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+    <script is:inline defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-charcoal antialiased font-sans">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #6B917D30;
+  }
+
+  /* Nav dark gradient overlay (always present, faded via opacity) */
+  #main-nav::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), transparent);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: -1;
+  }
+  #main-nav.nav-on-dark::before {
+    opacity: 1;
+  }
+
+  /* Nav color inversion when over dark footer */
+  #main-nav a,
+  #main-nav button {
+    transition: color 0.5s ease, background-color 0.5s ease;
+  }
+  .nav-on-dark > div:first-child a,
+  .nav-on-dark > div:first-child button {
+    color: white;
+  }
+  #mobile-menu a {
+    color: var(--color-secondary) !important;
+  }
+  .nav-on-dark a.bg-charcoal {
+    background-color: white;
+    color: #1C1C1E;
+  }
+  .nav-on-dark a.bg-charcoal:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+</style>

@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'SF Pro Display', 'Inter Tight', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --color-charcoal: #1C1C1E;
+  --color-secondary: #636366;
+  --color-tertiary: #8E8E93;
+  --color-accent: #6B917D;
+  --color-accent-light: #6B917D1a;
+  --color-border: #E5E5EA;
+  --color-surface: #F5F5F7;
+}

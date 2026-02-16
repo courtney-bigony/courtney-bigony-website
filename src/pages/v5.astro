@@ -1,0 +1,554 @@
+---
+import LayoutV3b from '../layouts/LayoutV3b.astro';
+---
+
+<LayoutV3b title="Courtney Bigony — Thriving Expert">
+
+  <!-- ═══════════════════════════════════════════ NAV ═══════════════════════════════════════════ -->
+  <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500">
+    <div class="flex items-center justify-between h-16 px-6 md:px-10 lg:px-16">
+      <a href="#" class="nav-link font-serif uppercase tracking-[0.02em] text-charcoal" style="font-size: 26px;">COURTNEY BIGONY</a>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#about" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">About</a>
+        <a href="#work" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Work</a>
+        <a href="#speaking" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Speaking</a>
+        <a href="#media" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Media</a>
+        <a href="#contact" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Contact</a>
+      </div>
+      <button id="mobile-toggle" class="md:hidden p-2 -mr-2" aria-label="Toggle menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="1" y1="5" x2="17" y2="5" />
+          <line x1="1" y1="13" x2="17" y2="13" />
+        </svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-border/30 bg-white/95 backdrop-blur-md">
+      <div class="px-6 py-6 flex flex-col gap-4">
+        <a href="#about" class="nav-link text-[17px] text-secondary mobile-link">About</a>
+        <a href="#work" class="nav-link text-[17px] text-secondary mobile-link">Work</a>
+        <a href="#speaking" class="nav-link text-[17px] text-secondary mobile-link">Speaking</a>
+        <a href="#media" class="nav-link text-[17px] text-secondary mobile-link">Media</a>
+        <a href="#contact" class="nav-link text-[17px] text-secondary mobile-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════ HERO — Card ═══════════════════════════════════════════ -->
+  <section id="hero-section" class="flex items-center justify-center px-6 md:px-10 lg:px-16" style="padding-top: 72px; padding-bottom: 12px; background: #fff;">
+    <div style="width: 100%;">
+      <div id="hero-card" style="position: relative; border-radius: 20px; overflow: hidden;">
+        <!-- Background image: mobile version (Courtney at bottom, white top) / desktop version -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="/images/headshots/hero-3-mobile-v2.webp" />
+          <img
+            id="hero-bg"
+            src="/images/headshots/hero-3.webp"
+            alt="Courtney Bigony"
+            width="1920"
+            height="1080"
+            fetchpriority="high"
+            decoding="async"
+            style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 67% 20%;"
+          />
+        </picture>
+        <!-- Gradient overlay: left-to-right on desktop, top-to-bottom on mobile -->
+        <div id="hero-gradient" style="position: absolute; inset: 0;"></div>
+        <!-- Text content -->
+        <div id="hero-text" style="position: relative; z-index: 10;">
+          <div id="hero-text-inner">
+            <p class="uppercase tracking-[0.25em] font-bold" style="color: #6B917D; font-size: 15px; margin-bottom: 28px;">Thriving Expert &middot; Tech Advisor &middot; Speaker</p>
+            <h1 class="font-serif" style="line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 32px;">
+              Build technology and AI that help people thrive.
+            </h1>
+            <a href="#contact" class="inline-flex items-center gap-2 bg-charcoal text-white font-medium rounded-full hover:bg-charcoal/85 transition-colors" id="hero-cta">
+              Work with me
+              <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════ FEATURED IN ═══════════════════════════════════════════ -->
+  <section class="pt-3 pb-14 md:pt-4 md:pb-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <p class="text-[13px] uppercase tracking-[0.2em] font-semibold mb-5 text-center" style="color: #999;">Featured in</p>
+      <div class="flex items-center justify-center gap-12 md:gap-20 flex-wrap">
+        <img src="/images/logos/forbes.webp" alt="Forbes" width="80" height="24" loading="lazy" decoding="async" style="height: 24px; width: auto;" />
+        <img src="/images/logos/fastcompany.webp" alt="Fast Company" width="120" height="24" loading="lazy" decoding="async" style="height: 24px; width: auto;" />
+        <img src="/images/logos/huffpost.webp" alt="HuffPost" width="100" height="24" loading="lazy" decoding="async" style="height: 24px; width: auto;" />
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ ABOUT (white) ═══════════════════════════════════════════ -->
+  <section id="about" class="pt-6 pb-14 md:py-20">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+        <div>
+          <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">About</p>
+          <h2 class="font-serif" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
+            Thriving Expert
+          </h2>
+          <p class="text-[18px] leading-[1.7] text-secondary">
+            I help tech companies integrate the science of human thriving into product design and AI development. I have a masters in the science of thriving from Penn, where I studied with Martin Seligman, the father of positive psychology.
+          </p>
+        </div>
+        <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
+          <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="skK3t2fWeZQ" data-title="The Science of Thriving" aria-label="Play video: The Science of Thriving">
+            <img src="https://i.ytimg.com/vi/skK3t2fWeZQ/maxresdefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ TECH ADVISOR / HPI (full-bleed) ═══════════════════════════════════════════ -->
+  <section id="work" class="flex flex-col md:block relative w-full md:min-h-[85vh]" style="background: #f5f5f5;">
+    <img
+      src="/images/headshots/full-body-left.webp"
+      alt="Courtney Bigony"
+      width="1920"
+      height="1080"
+      loading="lazy"
+      decoding="async"
+      class="w-full h-[55vh] object-cover object-[30%_top] md:absolute md:inset-0 md:h-full md:object-[left_20%]"
+    />
+    <div id="work-content" class="relative z-10 py-12 md:py-0 md:flex md:items-center md:min-h-[85vh] md:py-24">
+      <div class="w-full max-w-[1400px] mx-auto px-6 md:px-12">
+        <div class="md:ml-auto max-w-[500px]">
+          <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">What I Do</p>
+          <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
+            Tech Advisor
+          </h2>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-4">
+            I co-invented the Human Potential Index with the world's leading expert on human thriving &ndash; a new measure that hyperfocuses on what truly allows human beings to thrive.
+          </p>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-4">
+            Backed by science. Built for tech.
+          </p>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-6">
+            Now tech companies can build products that measurably improve people's lives.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            {['Wellbeing', 'Optimism', 'Resilience', 'Strengths', 'Meaning', 'Relationships', 'Personal Growth', 'Self-Actualization'].map(dim => (
+              <span class="px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] font-medium text-accent bg-accent-light rounded-full">{dim}</span>
+            ))}
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors">
+              Partner with Courtney
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 px-8 py-3.5 border border-charcoal text-charcoal text-[17px] font-medium rounded-full hover:bg-charcoal hover:text-white transition-colors">
+              Download the Guide
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ TECH INNOVATOR / PPD (white) ═══════════════════════════════════════════ -->
+  <section class="pt-4 pb-10 md:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+
+      <!-- HPI Videos -->
+      <div class="grid md:grid-cols-2 gap-8 mb-20 md:mb-28">
+        <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
+          <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="xbvcjBOZx-Q" data-title="AI's Tipping Point: Harm or Human Thriving?" aria-label="Play video: AI's Tipping Point">
+            <img src="https://i.ytimg.com/vi/xbvcjBOZx-Q/maxresdefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+            </div>
+          </button>
+        </div>
+        <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
+          <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="mSStIc6cLwU" data-title="Human Potential Index" aria-label="Play video: Human Potential Index">
+            <img src="https://i.ytimg.com/vi/mSStIc6cLwU/maxresdefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- PPD Content -->
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20">
+        <div class="order-2 md:order-1 aspect-video overflow-hidden rounded-sm bg-surface">
+          <img
+            src="/images/media/ppd-guide.webp"
+            alt="Positive Product Design Guide"
+            width="800"
+            height="660"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="order-1 md:order-2">
+          <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">Innovation</p>
+          <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
+            Tech Innovator
+          </h2>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-4">
+            I'm the inventor of Positive Product Design.
+          </p>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-6">
+            My method has been leveraged by 15Five to build technology that helps people thrive at work.
+          </p>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-8">
+            Tech companies, build software aligned to the science of human thriving.
+          </p>
+          <a href="https://www.dropbox.com/s/3kkg5hb486ocuff/A%20Guide%20to%20Positive%20Product%20Design%E2%84%A2.pdf?dl=0" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors">
+            Download the Guide
+            <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ SPEAKING ═══════════════════════════════════════════ -->
+  <section id="speaking" class="py-10 md:py-14">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
+        <div>
+          <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">Speaking</p>
+          <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
+            Book Me to Speak
+          </h2>
+          <p class="text-[18px] leading-[1.7] text-secondary mb-6">
+            Book me to speak on tech, AI, and human potential. Visionary ideas. Practical frameworks. Available for conferences, podcasts, and media.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-8">
+            {['AI and Human Thriving', 'Future of Work', 'Women in Tech'].map(topic => (
+              <span class="px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] font-medium border rounded-full" style="color: #6B917D; border-color: rgba(107,145,125,0.3);">{topic}</span>
+            ))}
+          </div>
+          <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors">
+            Book me to speak
+            <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+          </a>
+        </div>
+        <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
+          <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="m4LyEENeWOk" data-title="Speaker Reel" aria-label="Play video: Speaker Reel">
+            <img src="https://i.ytimg.com/vi/m4LyEENeWOk/maxresdefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ MEDIA (white, Swiper) ═══════════════════════════════════════════ -->
+  <section id="media" class="py-10 md:py-14 overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div class="flex items-end justify-between mb-12 md:mb-16">
+        <div>
+          <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">Press</p>
+          <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E;">
+            In the Media
+          </h2>
+        </div>
+        <div class="hidden md:flex items-center gap-3">
+          <button id="media-prev" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-secondary hover:text-charcoal hover:border-charcoal transition-colors" aria-label="Previous">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+          </button>
+          <button id="media-next" class="w-10 h-10 rounded-full border border-border flex items-center justify-center text-secondary hover:text-charcoal hover:border-charcoal transition-colors" aria-label="Next">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3l5 5-5 5"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div class="swiper media-swiper">
+        <div class="swiper-wrapper">
+          {[
+            { source: 'Authority Magazine', title: 'Female Disruptors: Shaking Up Your Industry', img: '/images/media/female-disruptors.webp', url: 'https://medium.com/authority-magazine/female-disruptors-courtney-bigony-of-15five-on-the-three-things-you-need-to-shake-up-your-industry-39f69992bb67', imgPos: 'center 30%' },
+            { source: 'Beautiful Minds', title: 'A New Way to Find Your Purpose', img: '/images/media/beautiful-minds-opt.webp', url: 'https://www.beautifulminds-newsletter.com/p/introducing-a-new-way-to-find-your', imgPos: 'center' },
+            { source: 'MAPP Magazine', title: 'Unlocking Human Potential at Scale', img: '/images/media/mapp.webp', url: 'https://www.mappmagazine.com/articles/empowering-tech-creators-to-unlock-human-potential-at-scale', imgPos: 'center' },
+            { source: 'Press Release', title: 'Prioritize Both Profit and Human Potential', img: '/images/media/ppd-guide.webp', url: '#', imgPos: 'center' },
+            { source: 'Fast Company', title: '2021 World Changing Idea', img: '/images/media/fastco.webp', url: 'https://www.prweb.com/releases/positive-product-design-tm-selected-by-fast-company-as-a-2021-world-changing-idea-in-the-wellness-category-805300491.html', imgPos: 'center 20%' },
+            { source: 'Forbes', title: 'Companies Are Letting Employees Self-Define Their Jobs', img: '/images/media/forbes.webp', url: 'https://www.forbes.com/sites/heidilynnekurter/2019/07/09/companies-are-letting-employees-self-define-their-jobs-and-heres-why/', imgPos: 'center' },
+            { source: 'Huffington Post', title: 'Silicon Valley Meets Positive Psychology', img: '/images/media/huffpost.webp', url: 'https://www.huffpost.com/entry/silicon-valley-meets-positive-psychology-using-science_b_5a5e671ce4b03ed177016e91', imgPos: 'center' },
+            { source: 'Podcast', title: 'Life Above Neutral with Positive Product Design', img: '/images/media/podcast-opt.webp', url: 'https://podcasts.apple.com/us/podcast/43-courtney-bigony-life-above-neutral-with-positive/id1485958382?i=1000522133056', imgPos: 'center' },
+          ].map(item => (
+            <div class="swiper-slide">
+              <a href={item.url} target="_blank" rel="noopener" class="group block">
+                <div class="aspect-[3/2] w-full overflow-hidden rounded-sm mb-4 bg-surface">
+                  <img src={item.img} alt={item.title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" style={`object-position: ${item.imgPos};`} />
+                </div>
+                <p class="text-[13px] uppercase tracking-[0.15em] font-bold mb-1" style="color: #6B917D;">{item.source}</p>
+                <h3 class="text-[17px] font-medium text-charcoal group-hover:text-accent transition-colors line-clamp-2">{item.title}</h3>
+              </a>
+            </div>
+          ))}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════ FOOTER: CONTACT + NATURE ═══════════════════════════════════════════ -->
+  <footer id="footer-nature" class="relative w-full min-h-screen overflow-hidden flex flex-col">
+    <img
+      src="/images/tree.webp"
+      alt=""
+      width="1920"
+      height="2880"
+      loading="lazy"
+      decoding="async"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+      role="presentation"
+    />
+    <div class="absolute inset-0" id="footer-overlay" style="background: rgba(0,0,0,0.25);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
+
+    <!-- CTA centered -->
+    <div id="contact" class="relative z-10 flex-1 flex items-center justify-center px-6 md:px-12">
+      <div class="text-center">
+        <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #fff;">Get In Touch</p>
+        <h2 class="font-serif" style="font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #fff; margin-bottom: 24px;">
+          Let's Unlock Human Potential
+        </h2>
+        <p class="leading-[1.7] mb-8" style="font-size: 22px; color: #fff;">
+          Tech advising, speaking, or just want to connect?
+        </p>
+        <a href="mailto:hello@courtneybigony.com" class="inline-flex items-center gap-2 px-9 py-4 bg-white text-charcoal text-[18px] font-medium rounded-full hover:bg-white/90 transition-colors mb-8">
+          Get in Touch
+          <svg width="16" height="16" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </a>
+        <div class="flex items-center justify-center gap-10">
+          <a href="https://www.instagram.com/courtneybigony/" target="_blank" rel="noopener" class="text-white/60 hover:text-white transition-colors" aria-label="Instagram">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/courtneybigony/" target="_blank" rel="noopener" class="text-white/60 hover:text-white transition-colors" aria-label="LinkedIn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@courtneybigony" target="_blank" rel="noopener" class="text-white/60 hover:text-white transition-colors" aria-label="YouTube">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bar at bottom -->
+    <div class="relative z-10 py-10">
+      <div class="max-w-[1400px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-[13px] text-white/50">&copy; 2026 Courtney Bigony &middot; San Francisco, CA</p>
+        <div class="flex items-center gap-6">
+          <a href="#about" class="text-[13px] text-white/50 hover:text-white transition-colors">About</a>
+          <a href="#work" class="text-[13px] text-white/50 hover:text-white transition-colors">Advising</a>
+          <a href="#speaking" class="text-[13px] text-white/50 hover:text-white transition-colors">Speaking</a>
+          <a href="#contact" class="text-[13px] text-white/50 hover:text-white transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</LayoutV3b>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  document.querySelectorAll('.mobile-link').forEach(link =>
+    link.addEventListener('click', () => menu?.classList.add('hidden'))
+  );
+
+  const nav = document.getElementById('main-nav');
+  const darkSections = document.querySelectorAll('#footer-nature');
+  window.addEventListener('scroll', () => {
+    const navHeight = nav?.offsetHeight ?? 64;
+    let overDark = false;
+    darkSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navHeight && rect.bottom > 0) overDark = true;
+    });
+    const isMobile = window.innerWidth < 768;
+    const scrollThreshold = isMobile ? 10 : 50;
+    if (window.scrollY <= scrollThreshold || overDark) {
+      nav?.classList.remove('bg-white', 'bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+    } else if (isMobile) {
+      nav?.classList.remove('bg-white/90', 'backdrop-blur-md');
+      nav?.classList.add('bg-white', 'shadow-sm');
+    } else {
+      nav?.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+    }
+    if (overDark) {
+      nav?.classList.add('nav-on-dark');
+    } else {
+      nav?.classList.remove('nav-on-dark');
+    }
+  }, { passive: true });
+
+  // YouTube facade: click thumbnail to load iframe
+  document.querySelectorAll('.yt-facade').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${btn.dataset.id}?autoplay=1`;
+      iframe.title = btn.dataset.title || '';
+      iframe.className = 'w-full h-full';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      btn.replaceWith(iframe);
+    });
+  });
+</script>
+
+<script is:inline defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script is:inline>
+  // Wait for Swiper to load (deferred)
+  function initSwiper() {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.media-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grabCursor: true,
+        loop: true,
+        autoplay: {
+          delay: 4000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          prevEl: '#media-prev',
+          nextEl: '#media-next',
+        },
+        breakpoints: {
+          640: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 3, spaceBetween: 28 },
+        },
+      });
+    } else {
+      setTimeout(initSwiper, 50);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSwiper);
+  } else {
+    initSwiper();
+  }
+</script>
+
+<style is:global>
+  .media-swiper {
+    padding-bottom: 60px !important;
+  }
+  .media-swiper .swiper-pagination {
+    bottom: 0 !important;
+  }
+  .swiper-pagination-bullet {
+    background: #d1d5db !important;
+    opacity: 1 !important;
+    width: 8px !important;
+    height: 8px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background: #6B917D !important;
+  }
+</style>
+
+<style>
+  /* ─── Hero: shared ─── */
+  #hero-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  /* ─── Hero: MOBILE (<768px) ─── */
+  @media (max-width: 767px) {
+    #hero-section {
+      min-height: auto !important;
+      padding-top: 72px;
+      padding-bottom: 12px;
+    }
+    #hero-card {
+      aspect-ratio: 428 / 926;
+    }
+    #hero-bg {
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+    #hero-gradient {
+      display: none;
+    }
+    #hero-text {
+      display: flex;
+      align-items: flex-start;
+      min-height: auto;
+      padding: 32px 28px;
+    }
+    #hero-text-inner {
+      text-align: left;
+    }
+    #hero-text-inner h1 {
+      font-size: clamp(2rem, 7.5vw, 3rem);
+    }
+    #hero-cta {
+      padding: 14px 28px;
+      font-size: 16px;
+    }
+    #work-content {
+      background: #fff;
+    }
+    #footer-overlay {
+      background: rgba(0,0,0,0.4) !important;
+    }
+  }
+
+  /* ─── Hero: DESKTOP (≥768px) ─── */
+  @media (min-width: 768px) {
+    #hero-section {
+      min-height: 100vh;
+    }
+    #hero-card {
+      min-height: 80vh;
+    }
+    #hero-bg {
+      object-position: 67% 20%;
+    }
+    #hero-gradient {
+      display: none;
+    }
+    #hero-text {
+      display: flex;
+      align-items: center;
+      min-height: 80vh;
+      padding: 64px;
+    }
+    #hero-text-inner {
+      max-width: 600px;
+    }
+    #hero-text-inner h1 {
+      font-size: clamp(3rem, 4.5vw, 4rem);
+    }
+    #hero-cta {
+      padding: 16px 36px;
+      font-size: 18px;
+    }
+  }
+</style>
