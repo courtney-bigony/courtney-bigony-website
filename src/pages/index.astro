@@ -128,7 +128,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     />
     <div id="work-content" class="relative z-10 py-12 lg:py-0 lg:flex lg:items-center lg:min-h-[85vh] lg:py-24">
       <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div class="lg:ml-auto" style="max-width: min(500px, 48%)">
+        <div id="work-text" class="lg:ml-auto">
           <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">What I Do</p>
           <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
             Tech Advisor
@@ -593,7 +593,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       padding-bottom: 12px;
     }
     #hero-card {
-      aspect-ratio: 428 / 926;
+      aspect-ratio: 3 / 4;
     }
     #hero-bg {
       object-fit: cover !important;
@@ -606,22 +606,22 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       display: flex;
       align-items: flex-start;
       min-height: auto;
-      padding: clamp(20px, 5vw, 32px) clamp(18px, 5vw, 28px);
+      padding: clamp(24px, 6vw, 40px) clamp(24px, 6vw, 36px);
     }
     #hero-text-inner {
       text-align: left;
     }
     #hero-text-inner > p:first-child {
       font-size: clamp(12px, 3.5vw, 15px) !important;
-      margin-bottom: clamp(16px, 4vw, 28px) !important;
+      margin-bottom: clamp(16px, 4vw, 24px) !important;
     }
     #hero-text-inner h1 {
-      font-size: clamp(1.5rem, 7vw, 3rem);
+      font-size: clamp(2rem, 8vw, 3rem);
       margin-bottom: clamp(20px, 5vw, 32px) !important;
     }
     #hero-cta {
-      padding: 12px 24px;
-      font-size: 15px;
+      padding: 14px 28px;
+      font-size: 16px;
     }
   }
   /* Tablet card: overlay layout with desktop image filling the card */
@@ -700,6 +700,13 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
   @media (min-width: 1200px) {
     #hero-bg {
       object-position: 67% 20% !important;
+    }
+  }
+
+  /* ─── Work section: text column constrained only at desktop ─── */
+  @media (min-width: 1024px) {
+    #work-text {
+      max-width: min(500px, 48%);
     }
   }
 </style>
