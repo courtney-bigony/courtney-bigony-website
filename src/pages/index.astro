@@ -531,36 +531,30 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       font-size: 15px;
     }
   }
-  /* Tablet card: stacked layout — text top, image bottom (jasonfeifer.com pattern) */
+  /* Tablet card: overlay layout with desktop image filling the card */
   @media (min-width: 600px) and (max-width: 999px) {
     #hero-card {
-      display: flex;
-      flex-direction: column;
       aspect-ratio: unset;
-      height: auto;
+      min-height: clamp(500px, 75vh, 750px);
     }
     #hero-bg {
-      position: relative !important;
-      inset: auto !important;
-      width: 100% !important;
-      height: clamp(350px, 50vw, 550px) !important;
-      object-fit: cover !important;
-      object-position: 65% 20% !important;
+      object-position: 70% 20% !important;
     }
     #hero-text {
-      order: -1;
-      padding: clamp(32px, 5vw, 48px);
-      min-height: auto;
+      display: flex;
+      align-items: center;
+      min-height: clamp(500px, 75vh, 750px);
+      padding: 48px;
     }
     #hero-text-inner {
-      max-width: 100%;
+      max-width: min(500px, 55vw);
     }
     #hero-text-inner > p:first-child {
       font-size: 14px !important;
       margin-bottom: 20px !important;
     }
     #hero-text-inner h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
       margin-bottom: 24px !important;
     }
     #hero-cta {
