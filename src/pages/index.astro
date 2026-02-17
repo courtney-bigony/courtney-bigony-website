@@ -40,7 +40,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       <div id="hero-card" style="position: relative; border-radius: 20px; overflow: hidden;">
         <!-- Background image: mobile version (Courtney at bottom, white top) / desktop version -->
         <picture>
-          <source media="(max-width: 767px)" srcset="/images/headshots/hero-3-mobile-v2.webp" />
+          <source media="(max-width: 599px)" srcset="/images/headshots/hero-3-mobile-v2.webp" />
           <img
             id="hero-bg"
             src="/images/headshots/hero-3.webp"
@@ -111,7 +111,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
 
 
   <!-- ═══════════════════════════════════════════ TECH ADVISOR / HPI (full-bleed) ═══════════════════════════════════════════ -->
-  <section id="work" class="flex flex-col md:block relative w-full md:min-h-[85vh]" style="background: #f5f5f5;">
+  <section id="work" class="flex flex-col lg:block relative w-full lg:min-h-[85vh]" style="background: #f5f5f5;">
     <img
       src="/images/headshots/full-body-left.webp"
       alt="Courtney Bigony"
@@ -119,11 +119,11 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       height="1080"
       loading="lazy"
       decoding="async"
-      class="w-full h-[55vh] object-cover object-[30%_top] md:absolute md:inset-0 md:h-full md:object-[left_20%]"
+      class="w-full h-[55vh] object-cover object-[30%_top] lg:absolute lg:inset-0 lg:h-full lg:object-[left_20%]"
     />
-    <div id="work-content" class="relative z-10 py-12 md:py-0 md:flex md:items-center md:min-h-[85vh] md:py-24">
-      <div class="w-full max-w-[1400px] mx-auto px-6 md:px-12">
-        <div class="md:ml-auto max-w-[500px]">
+    <div id="work-content" class="relative z-10 py-12 lg:py-0 lg:flex lg:items-center lg:min-h-[85vh] lg:py-24">
+      <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div class="lg:ml-auto max-w-[500px]">
           <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">What I Do</p>
           <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
             Tech Advisor
@@ -166,7 +166,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       <div class="grid md:grid-cols-2 gap-8 mb-20 md:mb-28">
         <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
           <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="xbvcjBOZx-Q" data-title="AI's Tipping Point: Harm or Human Thriving?" aria-label="Play video: AI's Tipping Point">
-            <img src="https://i.ytimg.com/vi/xbvcjBOZx-Q/maxresdefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
+            <img src="https://i.ytimg.com/vi/xbvcjBOZx-Q/sddefault.jpg" alt="" class="w-full h-full object-cover" loading="lazy" decoding="async" />
             <div class="absolute inset-0 flex items-center justify-center">
               <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/><path d="M45 24L27 14v20" fill="white"/></svg>
             </div>
@@ -479,8 +479,15 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     overflow: hidden;
   }
 
-  /* ─── Hero: MOBILE (<768px) ─── */
-  @media (max-width: 767px) {
+  /* ─── Work section: stacked layout below lg ─── */
+  @media (max-width: 1023px) {
+    #work-content {
+      background: #fff;
+    }
+  }
+
+  /* ─── Hero: CARD LAYOUT (<1000px) — Frame 12 image, text top, Courtney bottom ─── */
+  @media (max-width: 999px) {
     #hero-section {
       min-height: auto !important;
       padding-top: 72px;
@@ -500,36 +507,81 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       display: flex;
       align-items: flex-start;
       min-height: auto;
-      padding: 32px 28px;
+      padding: clamp(20px, 5vw, 32px) clamp(18px, 5vw, 28px);
     }
     #hero-text-inner {
       text-align: left;
     }
+    #hero-text-inner > p:first-child {
+      font-size: clamp(12px, 3.5vw, 15px) !important;
+      margin-bottom: clamp(16px, 4vw, 28px) !important;
+    }
     #hero-text-inner h1 {
-      font-size: clamp(2rem, 7.5vw, 3rem);
+      font-size: clamp(1.5rem, 7vw, 3rem);
+      margin-bottom: clamp(20px, 5vw, 32px) !important;
+    }
+    #hero-cta {
+      padding: 12px 24px;
+      font-size: 15px;
+    }
+  }
+  /* Tablet card: stacked layout — text top, image bottom (jasonfeifer.com pattern) */
+  @media (min-width: 600px) and (max-width: 999px) {
+    #hero-card {
+      display: flex;
+      flex-direction: column;
+      aspect-ratio: unset;
+      height: auto;
+    }
+    #hero-bg {
+      position: relative !important;
+      inset: auto !important;
+      width: 100% !important;
+      height: clamp(350px, 50vw, 550px) !important;
+      object-fit: cover !important;
+      object-position: 65% 20% !important;
+    }
+    #hero-text {
+      order: -1;
+      padding: clamp(32px, 5vw, 48px);
+      min-height: auto;
+    }
+    #hero-text-inner {
+      max-width: 100%;
+    }
+    #hero-text-inner > p:first-child {
+      font-size: 14px !important;
+      margin-bottom: 20px !important;
+    }
+    #hero-text-inner h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      margin-bottom: 24px !important;
     }
     #hero-cta {
       padding: 14px 28px;
       font-size: 16px;
     }
-    #work-content {
-      background: #fff;
-    }
+  }
+
+  /* ─── Footer overlay: more opaque on mobile ─── */
+  @media (max-width: 767px) {
     #footer-overlay {
       background: rgba(0,0,0,0.4) !important;
     }
   }
 
-  /* ─── Hero: DESKTOP (≥768px) ─── */
-  @media (min-width: 768px) {
+  /* ─── Hero: DESKTOP OVERLAY (≥1000px) ─── */
+  @media (min-width: 1000px) {
     #hero-section {
       min-height: 100vh;
+      padding-top: 72px;
+      padding-bottom: 12px;
     }
     #hero-card {
       min-height: 80vh;
     }
     #hero-bg {
-      object-position: 67% 20%;
+      object-position: 78% 20%;
     }
     #hero-gradient {
       display: none;
@@ -541,14 +593,20 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       padding: 64px;
     }
     #hero-text-inner {
-      max-width: 600px;
+      max-width: min(600px, 42vw);
     }
     #hero-text-inner h1 {
-      font-size: clamp(3rem, 4.5vw, 4rem);
+      font-size: clamp(2.5rem, 4vw, 4rem);
     }
     #hero-cta {
       padding: 16px 36px;
       font-size: 18px;
+    }
+  }
+  /* At wider screens, bring Courtney back toward center */
+  @media (min-width: 1200px) {
+    #hero-bg {
+      object-position: 67% 20% !important;
     }
   }
 </style>
