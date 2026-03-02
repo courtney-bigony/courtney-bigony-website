@@ -1,0 +1,67 @@
+---
+import LayoutV3b from '../layouts/LayoutV3b.astro';
+---
+
+<LayoutV3b title="Contact — Courtney Bigony" description="Get in touch with Courtney Bigony. Tech advising, speaking, or just want to connect?">
+
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+    <div class="flex items-center justify-between h-16 px-6 md:px-10 lg:px-16" style="position: relative; z-index: 1;">
+      <a href="/" class="font-serif uppercase tracking-[0.02em] text-charcoal" style="font-size: 26px;">COURTNEY BIGONY</a>
+      <a href="/" class="text-[16px] font-medium text-charcoal hover:text-accent transition-colors">&larr; Back to site</a>
+    </div>
+  </nav>
+
+  <main class="flex items-center justify-center px-6 min-h-screen" style="padding-top: 80px; padding-bottom: 40px;">
+    <div class="w-full" style="max-width: 520px;">
+      <p class="text-[13px] uppercase tracking-[0.2em] font-semibold mb-2" style="color: #6B917D;">Get In Touch</p>
+      <h1 class="font-serif mb-3" style="font-size: clamp(2rem, 5vw, 2.75rem); line-height: 1.1; letter-spacing: -0.02em; color: #1C1C1E;">Let's work together</h1>
+      <p class="text-[17px] leading-[1.6] text-secondary mb-8">Tech advising, speaking, or just want to connect?</p>
+      <form id="contact-form" class="flex flex-col gap-4">
+        <div>
+          <label for="contact-name" class="block text-[13px] font-medium text-secondary mb-1.5">Name</label>
+          <input type="text" id="contact-name" name="name" required class="w-full px-4 py-3 rounded-lg border border-border text-[15px] text-charcoal placeholder:text-secondary/50 focus:outline-none focus:border-accent transition-colors" placeholder="Your name" />
+        </div>
+        <div>
+          <label for="contact-email" class="block text-[13px] font-medium text-secondary mb-1.5">Email</label>
+          <input type="email" id="contact-email" name="email" required class="w-full px-4 py-3 rounded-lg border border-border text-[15px] text-charcoal placeholder:text-secondary/50 focus:outline-none focus:border-accent transition-colors" placeholder="you@email.com" />
+        </div>
+        <div>
+          <label for="contact-message" class="block text-[13px] font-medium text-secondary mb-1.5">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-border text-[15px] text-charcoal placeholder:text-secondary/50 focus:outline-none focus:border-accent transition-colors resize-none" placeholder="How can Courtney help?"></textarea>
+        </div>
+        <button type="submit" class="inline-flex items-center justify-center gap-2 w-full px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors cursor-pointer mt-2">
+          Send Message
+          <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+        </button>
+      </form>
+      <p id="contact-success" class="hidden text-center text-[15px] text-accent font-medium mt-4">Message sent! Courtney will be in touch soon.</p>
+    </div>
+  </main>
+
+  <script>
+    const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
+    contactForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+      if (submitBtn) submitBtn.textContent = 'Sending...';
+      try {
+        const resp = await fetch('https://formspree.io/f/mwvnbdbd', {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (resp.ok) {
+          contactForm.classList.add('hidden');
+          document.getElementById('contact-success')?.classList.remove('hidden');
+        } else {
+          if (submitBtn) submitBtn.textContent = 'Send Message';
+          alert('Something went wrong. Please try again.');
+        }
+      } catch {
+        if (submitBtn) submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+
+</LayoutV3b>

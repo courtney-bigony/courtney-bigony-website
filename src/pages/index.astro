@@ -2,7 +2,7 @@
 import LayoutV3b from '../layouts/LayoutV3b.astro';
 ---
 
-<LayoutV3b title="Courtney Bigony — Human Potential Expert">
+<LayoutV3b title="Courtney Bigony — Thriving Expert. Tech Advisor. Speaker." description="Build technology and AI that help people thrive. Courtney Bigony is a human potential expert helping tech companies integrate the science of thriving into product design and AI development.">
 
   <!-- ═══════════════════════════════════════════ NAV ═══════════════════════════════════════════ -->
   <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow,backdrop-filter] duration-500">
@@ -13,7 +13,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
         <a href="#work" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Work</a>
         <a href="#speaking" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Speaking</a>
         <a href="#media" class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Media</a>
-        <a href="#contact" data-contact-modal class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Contact</a>
+        <a href="#" data-contact-modal class="nav-link text-[16px] font-medium text-charcoal hover:text-accent transition-colors">Contact</a>
       </div>
       <button id="mobile-toggle" class="md:hidden p-2 -mr-2" aria-label="Toggle menu">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -28,7 +28,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
         <a href="#work" class="nav-link text-[17px] text-secondary mobile-link">Work</a>
         <a href="#speaking" class="nav-link text-[17px] text-secondary mobile-link">Speaking</a>
         <a href="#media" class="nav-link text-[17px] text-secondary mobile-link">Media</a>
-        <a href="#contact" data-contact-modal class="nav-link text-[17px] text-secondary mobile-link">Contact</a>
+        <a href="#" data-contact-modal class="nav-link text-[17px] text-secondary mobile-link">Contact</a>
       </div>
     </div>
   </nav>
@@ -90,8 +90,8 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       <div class="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
         <div>
           <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">About</p>
-          <h2 class="font-serif" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
-            Human Potential Expert
+          <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
+            Thriving Expert
           </h2>
           <p class="text-[18px] leading-[1.7] text-secondary mb-6">
             I have a masters in the science of thriving from Penn, where I studied with Martin Seligman, the father of positive psychology.
@@ -124,7 +124,8 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       height="1080"
       loading="lazy"
       decoding="async"
-      class="w-full h-[55vh] object-cover object-[30%_top] lg:absolute lg:inset-0 lg:h-full lg:object-[left_20%]"
+      id="work-img"
+      class="w-full object-cover object-[30%_top] lg:absolute lg:inset-0 lg:h-full lg:object-[left_20%]"
     />
     <div id="work-content" class="relative z-10 py-12 lg:py-0 lg:flex lg:items-center lg:min-h-[85vh] lg:py-24">
       <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -147,7 +148,10 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
               Partner with Courtney
               <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
             </button>
-            <!-- Download the Guide button hidden -->
+            <a href="/guides/HPI_Guide2026.pdf" data-guide="hpi" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-3.5 border border-charcoal text-charcoal text-[17px] font-medium rounded-full hover:bg-charcoal hover:text-white transition-colors">
+              Download the Guide
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
+            </a>
 
           </div>
         </div>
@@ -182,15 +186,15 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
 
       <!-- PPD Content -->
       <div class="grid md:grid-cols-2 gap-12 md:gap-20">
-        <div class="order-2 md:order-1 aspect-video overflow-hidden rounded-sm bg-surface">
+        <div class="order-2 md:order-1 flex items-center justify-center">
           <img
-            src="/images/media/ppd-guide.webp"
+            src="/images/ppd-mockup.webp"
             alt="Positive Product Design Guide"
-            width="800"
-            height="660"
+            width="4200"
+            height="3150"
             loading="lazy"
             decoding="async"
-            class="w-full h-full object-cover"
+            class="w-full h-auto"
           />
         </div>
         <div class="order-1 md:order-2">
@@ -207,7 +211,10 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
           <p class="text-[18px] leading-[1.7] text-secondary mb-8">
             Tech companies: build software aligned to the science of human thriving.
           </p>
-          <!-- Download the Guide button hidden -->
+          <a href="/guides/PPD_Guide2026.pdf" data-guide="ppd" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-3.5 border border-charcoal text-charcoal text-[17px] font-medium rounded-full hover:bg-charcoal hover:text-white transition-colors">
+            Download the Guide
+            <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
+          </a>
 
         </div>
       </div>
@@ -279,7 +286,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
             { source: 'Authority Magazine', title: 'Female Disruptors: Shaking Up Your Industry', img: '/images/media/female-disruptors.webp', url: 'https://medium.com/authority-magazine/female-disruptors-courtney-bigony-of-15five-on-the-three-things-you-need-to-shake-up-your-industry-39f69992bb67', imgPos: 'center 30%' },
             { source: 'Beautiful Minds', title: 'A New Way to Find Your Purpose', img: '/images/media/beautiful-minds-opt.webp', url: 'https://www.beautifulminds-newsletter.com/p/introducing-a-new-way-to-find-your', imgPos: 'center' },
             { source: 'MAPP Magazine', title: 'Unlocking Human Potential at Scale', img: '/images/media/mapp.webp', url: 'https://www.mappmagazine.com/articles/empowering-tech-creators-to-unlock-human-potential-at-scale', imgPos: 'center' },
-            { source: 'Press Release', title: 'Prioritize Both Profit and Human Potential', img: '/images/media/ppd-guide.webp', url: '#', imgPos: 'center' },
+            { source: 'Press Release', title: 'Prioritize Both Profit and Human Potential', img: '/images/ppd-mockup.webp', url: 'https://www.prweb.com/releases/the-positive-product-design-tm-guide-empowers-tech-companies-to-prioritize-both-profit-and-human-potential-874438214.html', imgPos: 'center' },
             { source: 'Fast Company', title: '2021 World Changing Idea', img: '/images/media/fastco.webp', url: 'https://www.prweb.com/releases/positive-product-design-tm-selected-by-fast-company-as-a-2021-world-changing-idea-in-the-wellness-category-805300491.html', imgPos: 'center 20%' },
             { source: 'Forbes', title: 'Companies Are Letting Employees Self-Define Their Jobs', img: '/images/media/forbes.webp', url: 'https://www.forbes.com/sites/heidilynnekurter/2019/07/09/companies-are-letting-employees-self-define-their-jobs-and-heres-why/', imgPos: 'center' },
             { source: 'Huffington Post', title: 'Silicon Valley Meets Positive Psychology', img: '/images/media/huffpost.webp', url: 'https://www.huffpost.com/entry/silicon-valley-meets-positive-psychology-using-science_b_5a5e671ce4b03ed177016e91', imgPos: 'center' },
@@ -303,7 +310,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
 
 
   <!-- ═══════════════════════════════════════════ FOOTER: CONTACT + NATURE ═══════════════════════════════════════════ -->
-  <footer id="footer-nature" class="relative w-full min-h-screen overflow-hidden flex flex-col">
+  <footer id="footer-nature" class="relative w-full overflow-hidden flex flex-col" style="min-height: 100dvh;">
     <img
       src="/images/tree.webp"
       alt=""
@@ -318,7 +325,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.7) 100%);"></div>
 
     <!-- CTA centered -->
-    <div id="contact" class="relative z-10 flex-1 flex items-center justify-center px-6 md:px-12">
+    <div id="contact" class="relative z-10 flex-1 flex items-center justify-center px-6 md:px-12 pt-20 md:pt-16">
       <div class="text-center">
         <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #fff;">Get In Touch</p>
         <h2 class="font-serif" style="font-size: clamp(3.5rem, 7vw, 6.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #fff; margin-bottom: 24px;">
@@ -416,6 +423,17 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
 
 </LayoutV3b>
 
+<script is:inline>
+  // Serve mobile-optimized PDFs on small screens (compressed, reformatted for readability)
+  if (window.innerWidth <= 768) {
+    document.querySelectorAll('a[data-guide]').forEach(function(a) {
+      var g = a.getAttribute('data-guide');
+      if (g === 'hpi') a.href = '/guides/HPI_Guide2026_mobile.pdf';
+      if (g === 'ppd') a.href = '/guides/PPD_Guide2026_mobile.pdf';
+    });
+  }
+</script>
+
 <script>
   const toggle = document.getElementById('mobile-toggle');
   const menu = document.getElementById('mobile-menu');
@@ -450,19 +468,61 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     }
   }, { passive: true });
 
-  // YouTube facade: click thumbnail to load iframe
-  document.querySelectorAll('.yt-facade').forEach(btn => {
+  // YouTube facade: click thumbnail to load iframe, reset to thumbnail on video end
+  // Load YouTube IFrame API
+  const ytScript = document.createElement('script');
+  ytScript.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(ytScript);
+
+  let ytApiReady = false;
+  const pendingPlayers = [];
+  window.onYouTubeIframeAPIReady = () => {
+    ytApiReady = true;
+    pendingPlayers.forEach(fn => fn());
+    pendingPlayers.length = 0;
+  };
+
+  let ytCounter = 0;
+  function attachFacade(btn) {
     btn.addEventListener('click', () => {
+      const container = btn.parentElement;
+      const facadeHTML = container.innerHTML;
+      container.style.position = 'relative';
+      container.style.background = '#fff';
+      container.style.boxShadow = 'none';
+      container.style.borderRadius = '0';
+
+      const iframeId = 'yt-player-' + (ytCounter++);
       const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${btn.dataset.id}?autoplay=1`;
+      iframe.id = iframeId;
+      iframe.src = `https://www.youtube.com/embed/${btn.dataset.id}?autoplay=1&enablejsapi=1&rel=0&modestbranding=1`;
       iframe.title = btn.dataset.title || '';
-      iframe.className = 'w-full h-full';
-      iframe.frameBorder = '0';
+      iframe.style.cssText = 'position:absolute;inset:-1px;width:calc(100% + 2px);height:calc(100% + 2px);border:0;display:block;';
       iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
       iframe.allowFullscreen = true;
       btn.replaceWith(iframe);
+
+      function initPlayer() {
+        new YT.Player(iframeId, {
+          events: {
+            onStateChange: (e) => {
+              if (e.data === YT.PlayerState.ENDED) {
+                container.innerHTML = facadeHTML;
+                container.style.boxShadow = '';
+                container.style.borderRadius = '';
+                const newBtn = container.querySelector('.yt-facade');
+                if (newBtn) attachFacade(newBtn);
+              }
+            }
+          }
+        });
+      }
+
+      if (ytApiReady) initPlayer();
+      else pendingPlayers.push(initPlayer);
     });
-  });
+  }
+  document.querySelectorAll('.yt-facade').forEach(attachFacade);
 
   // Contact Modal
   const modal = document.getElementById('contact-modal');
@@ -489,27 +549,65 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     if (e.key === 'Escape' && !modal?.classList.contains('hidden')) closeModal();
   });
 
-  contactForm?.addEventListener('submit', (e) => {
+  // Auto-open contact modal from /contact URL
+  if (new URLSearchParams(window.location.search).has('contact')) {
+    openModal();
+    history.replaceState(null, '', window.location.pathname);
+  }
+
+  contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(contactForm);
-    // For now, show success (integrate with backend later)
-    contactForm.classList.add('hidden');
-    contactSuccess?.classList.remove('hidden');
-    setTimeout(closeModal, 2500);
-    setTimeout(() => {
-      contactForm.classList.remove('hidden');
-      contactForm.reset();
-      contactSuccess?.classList.add('hidden');
-    }, 3000);
+    const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    if (submitBtn) submitBtn.textContent = 'Sending...';
+    try {
+      const resp = await fetch('https://formspree.io/f/mwvnbdbd', {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (resp.ok) {
+        contactForm.classList.add('hidden');
+        contactSuccess?.classList.remove('hidden');
+        setTimeout(closeModal, 2500);
+        setTimeout(() => {
+          contactForm.classList.remove('hidden');
+          contactForm.reset();
+          if (submitBtn) submitBtn.textContent = 'Send Message';
+          contactSuccess?.classList.add('hidden');
+        }, 3000);
+      } else {
+        if (submitBtn) submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please try again or email courtney.bigony@gmail.com');
+      }
+    } catch {
+      if (submitBtn) submitBtn.textContent = 'Send Message';
+      alert('Something went wrong. Please try again or email courtney.bigony@gmail.com');
+    }
   });
 
   // Newsletter form
   const nlForm = document.getElementById('newsletter-form') as HTMLFormElement | null;
   const nlSuccess = document.getElementById('newsletter-success');
-  nlForm?.addEventListener('submit', (e) => {
+  nlForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    nlForm.classList.add('hidden');
-    nlSuccess?.classList.remove('hidden');
+    const btn = nlForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    if (btn) btn.textContent = 'Subscribing...';
+    try {
+      const email = (nlForm.querySelector('input[name="email"]') as HTMLInputElement)?.value;
+      const resp = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (resp.ok) {
+        nlForm.classList.add('hidden');
+        nlSuccess?.classList.remove('hidden');
+      } else {
+        if (btn) btn.textContent = 'Try again';
+      }
+    } catch {
+      if (btn) btn.textContent = 'Try again';
+    }
   });
 </script>
 
@@ -582,6 +680,9 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
   @media (max-width: 1023px) {
     #work-content {
       background: #fff;
+    }
+    #work-img {
+      height: 400px; /* fixed px prevents resize when mobile address bar shows/hides */
     }
   }
 

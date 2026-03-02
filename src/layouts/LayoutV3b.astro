@@ -6,7 +6,8 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Courtney Bigony — Human Potential Expert helping tech companies build technology that helps people thrive.' } = Astro.props;
+const { title, description = 'Courtney Bigony — Human Potential Expert helping tech companies build technology that help people thrive.' } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.courtneybigony.com');
 ---
 
 <!doctype html>
@@ -15,16 +16,20 @@ const { title, description = 'Courtney Bigony — Human Potential Expert helping
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="author" content="Courtney Bigony" />
+    <link rel="canonical" href={canonicalURL.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://courtney-bigony-website-v3.vercel.app/og-image.jpg" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:image" content="https://www.courtneybigony.com/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://courtney-bigony-website-v3.vercel.app/og-image.jpg" />
+    <meta name="twitter:image" content="https://www.courtneybigony.com/og-image.jpg" />
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -43,6 +48,35 @@ const { title, description = 'Courtney Bigony — Human Potential Expert helping
     <script is:inline defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
     <script is:inline defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollToPlugin.min.js"></script>
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Courtney Bigony",
+          "url": "https://www.courtneybigony.com",
+          "description": description
+        },
+        {
+          "@type": "Person",
+          "name": "Courtney Bigony",
+          "url": "https://www.courtneybigony.com",
+          "image": "https://www.courtneybigony.com/og-image.jpg",
+          "jobTitle": "Human Potential Expert & Tech Advisor",
+          "description": "Helping tech companies integrate the science of human thriving into product design and AI development.",
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Pennsylvania"
+          },
+          "sameAs": [
+            "https://www.instagram.com/courtneybigony/",
+            "https://www.linkedin.com/in/courtneybigony/",
+            "https://www.youtube.com/@courtneybigony"
+          ],
+          "knowsAbout": ["Positive Psychology", "Human Thriving", "AI", "Product Design", "Human Performance"]
+        }
+      ]
+    })} />
   </head>
   <body class="bg-white text-charcoal antialiased font-sans">
     <slot />
@@ -68,10 +102,15 @@ const { title, description = 'Courtney Bigony — Human Potential Expert helping
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
   }
   #main-nav.nav-on-dark::before {
     opacity: 1;
+  }
+  /* Keep nav content above the ::before overlay */
+  #main-nav > div {
+    position: relative;
+    z-index: 1;
   }
 
   /* Nav color inversion when over dark footer */
