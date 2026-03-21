@@ -93,9 +93,14 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
           <h2 class="font-serif" style="font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
             Human Potential Expert
           </h2>
-          <p class="text-[18px] leading-[1.7] text-secondary">
-            I help tech companies integrate the science of human thriving into product design and AI development. I have a masters in the science of thriving from Penn, where I studied with Martin Seligman, the father of positive psychology.
+          <p class="text-[18px] leading-[1.7] text-secondary mb-6">
+            I have a masters in the science of thriving from Penn, where I studied with Martin Seligman, the father of positive psychology.
           </p>
+          <div class="flex flex-wrap gap-2">
+            {['Wellbeing', 'Optimism', 'Resilience', 'Strengths', 'Meaning', 'Relationships', 'Personal Growth', 'Self-Actualization'].map(dim => (
+              <span class="px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] font-medium text-accent bg-accent-light rounded-full">{dim}</span>
+            ))}
+          </div>
         </div>
         <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
           <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="skK3t2fWeZQ" data-title="The Science of Thriving" aria-label="Play video: The Science of Thriving">
@@ -129,19 +134,14 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
             Tech Advisor
           </h2>
           <p class="text-[18px] leading-[1.7] text-secondary mb-4">
-            I co-invented the Human Potential Index with the world's leading expert on human thriving &ndash; a new measure that hyperfocuses on what truly allows human beings to thrive.
+            I help tech companies build software and AI aligned to the science of human thriving.
           </p>
           <p class="text-[18px] leading-[1.7] text-secondary mb-4">
-            Backed by science. Built for tech.
+            Using the Human Potential Index&mdash;the most complete measure of human potential I developed with self-actualization scientist Dr. Scott Barry Kaufman&mdash;companies can now build technology that measurably improves human thriving.
           </p>
           <p class="text-[18px] leading-[1.7] text-secondary mb-6">
-            Now tech companies can build products that measurably improve people's lives.
+            Backed by science. Built for tech.
           </p>
-          <div class="flex flex-wrap gap-2 mb-8">
-            {['Wellbeing', 'Optimism', 'Resilience', 'Strengths', 'Meaning', 'Relationships', 'Personal Growth', 'Self-Actualization'].map(dim => (
-              <span class="px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] font-medium text-accent bg-accent-light rounded-full">{dim}</span>
-            ))}
-          </div>
           <div class="flex flex-wrap gap-3">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors">
               Partner with Courtney
@@ -201,13 +201,13 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
             Tech Innovator
           </h2>
           <p class="text-[18px] leading-[1.7] text-secondary mb-4">
-            I'm the inventor of Positive Product Design.
+            I'm the inventor of Positive Product Design &ndash; a Fast Company World Changing Idea.
           </p>
           <p class="text-[18px] leading-[1.7] text-secondary mb-6">
             My method has been leveraged by 15Five to build technology that helps people thrive at work.
           </p>
           <p class="text-[18px] leading-[1.7] text-secondary mb-8">
-            Tech companies, build software aligned to the science of human thriving.
+            Tech companies: build software aligned to the science of human thriving.
           </p>
           <div class="flex flex-wrap gap-3">
             <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors">
