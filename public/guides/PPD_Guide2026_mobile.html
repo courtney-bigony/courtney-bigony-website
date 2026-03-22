@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Positive Product Design Guide &mdash; Mobile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page { size: 4.25in 7.5in; margin: 0; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 13pt;
+      line-height: 1.6;
+      color: #333;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 4.25in;
+      height: 7.5in;
+      padding: 0.45in 0.4in;
+      page-break-after: always;
+      position: relative;
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: auto; }
+    .cover-page { padding: 0; }
+    .cover-page img { width: 100%; height: 100%; object-fit: cover; }
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 24pt; font-weight: 400; color: #1C1C1E;
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px;
+    }
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 20pt; font-weight: 400; color: #1C1C1E;
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.15em; color: #6B917D; margin-bottom: 8px;
+    }
+    p { margin-bottom: 12px; }
+    .accent-bar { width: 40px; height: 3px; background: #6B917D; margin-bottom: 16px; }
+    .footer-line {
+      position: absolute; bottom: 0.35in; left: 0.4in; right: 0.4in;
+      font-size: 7pt; color: #999; text-align: center;
+    }
+    .credits { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+    .credits p { font-size: 11pt; color: #555; line-height: 1.7; }
+    .credits .title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 18pt; color: #1C1C1E; margin-bottom: 20px;
+    }
+    .construct-card { padding-top: 4px; }
+    .construct-name {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 22pt; font-weight: 400; color: #1C1C1E;
+      line-height: 1.1; margin-bottom: 18px;
+    }
+    .section-label {
+      font-size: 9pt; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.12em; color: #6B917D; margin-bottom: 8px;
+    }
+    .question-list { list-style: none; margin-bottom: 20px; }
+    .question-list li {
+      position: relative; padding-left: 18px; margin-bottom: 6px;
+      font-size: 12pt; line-height: 1.5; color: #333;
+    }
+    .question-list li::before {
+      content: "+"; position: absolute; left: 0; color: #6B917D; font-weight: 600;
+    }
+    .scale-text { font-size: 10pt; line-height: 1.55; color: #555; font-style: italic; }
+    .divider { width: 100%; height: 1px; background: #e5e5e5; margin: 16px 0; }
+    .intro-text p { font-size: 12pt; line-height: 1.6; color: #333; margin-bottom: 12px; }
+    .intro-text .highlight { color: #1C1C1E; font-weight: 500; }
+    .bullet-list { list-style: none; margin-bottom: 14px; }
+    .bullet-list li {
+      position: relative; padding-left: 18px; margin-bottom: 8px;
+      font-size: 12pt; line-height: 1.55; color: #333;
+    }
+    .bullet-list li::before {
+      content: "+"; position: absolute; left: 0; color: #6B917D; font-weight: 600;
+    }
+    .callout {
+      border-left: 3px solid #6B917D; background: rgba(107, 145, 125, 0.06);
+      padding: 14px 16px; margin: 14px 0; border-radius: 0 6px 6px 0;
+    }
+    .callout p { font-size: 11pt; line-height: 1.55; color: #333; margin-bottom: 0; }
+    .callout .attribution {
+      font-size: 8pt; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #6B917D; margin-top: 10px; display: block;
+    }
+    .final-page {
+      display: flex; flex-direction: column; justify-content: center;
+      align-items: center; text-align: center; height: 100%;
+    }
+    .final-page p { font-size: 10pt; color: #999; }
+    .platform-table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 10px 0; }
+    .platform-table th {
+      background: #6B917D; color: white; padding: 4px 6px; text-align: left;
+      font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .platform-table td {
+      padding: 4px 6px; border-bottom: 1px solid #e5e5e5; color: #333; vertical-align: top;
+      font-size: 8pt !important; line-height: 1.35 !important;
+    }
+    .platform-table tr:nth-child(even) td { background: rgba(107, 145, 125, 0.04); }
+    .scorecard-q { margin-bottom: 16px; }
+    .scorecard-q .q-title { font-size: 10pt; font-weight: 600; color: #1C1C1E; margin-bottom: 6px; line-height: 1.4; }
+    .scorecard-q .score-item { font-size: 9pt; color: #333; line-height: 1.5; padding-left: 16px; margin-bottom: 3px; }
+    .score-range { font-size: 9pt; color: #555; margin-top: 8px; line-height: 1.5; }
+    .score-range strong { color: #6B917D; }
+    .small-body p { font-size: 11pt; line-height: 1.55; color: #333; margin-bottom: 10px; }
+    .hpi-list { columns: 2; column-gap: 16px; font-size: 9pt; line-height: 1.8; color: #333; margin: 10px 0; }
+    .ref-text { font-size: 8pt; line-height: 1.6; color: #555; }
+    .ref-text p { margin-bottom: 6px; text-indent: -14px; padding-left: 14px; }
+    .toc-item {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 5px 0; border-bottom: 1px dotted #ddd; font-size: 10pt; color: #333;
+    }
+    .toc-section {
+      font-size: 8pt; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: #6B917D; margin-top: 14px; margin-bottom: 2px;
+    }
+    .toc-title { flex: 1; }
+    .toc-page { color: #999; font-size: 9pt; margin-left: 8px; }
+    .page-num {
+      position: absolute;
+      top: 0.3in;
+      right: 0.4in;
+      font-size: 7pt;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page cover-page">
+  <img src="ppd-cover-mobile.jpg" alt="Positive Product Design Guide Cover" />
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <div style="max-width: 280px;">
+    <p style="font-family: 'Instrument Serif', Georgia, serif; font-size: 20pt; font-style: italic; color: #1C1C1E; line-height: 1.3; margin-bottom: 24px;">&ldquo;Technology has the potential to increase the tonnage of human happiness on our planet.&rdquo;</p>
+    <p style="font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #6B917D;">Martin Seligman, Father of<br>Positive Psychology</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">3</span>
+  <h3>Foreword</h3>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>After studying with Martin Seligman, the father of positive psychology, and learning about the science of thriving, I have been working to define a new direction for technology and human potential. I have spent hundreds of hours studying different aspects of positive psychology and have seen first hand that academics are innovators who dedicate their time to expanding the boundaries of what we know.</p>
+    <p>While the majority of psychology has focused on curing illness, humanistic and positive psychology focus on how to thrive and lead a self-actualized life, emphasizing freedom, personal responsibility, self-awareness, and personal growth. And, thanks to the dedication of academics, we now have a vast amount of research and knowledge about human potential, but most of it is stuck in academic journals with narrow readership.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">4</span>
+  <h3>Foreword</h3>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>Many are starting to spread their knowledge and research on how individuals can thrive and &ldquo;live above neutral&rdquo; more broadly through their own books, TED talks, and on social media, yet most science isn&rsquo;t making it to the places where most people are&mdash;the technology they use.</p>
+    <p>Positive Product Design aims to solve this problem. Tech creators can use the Positive Product Design method to spread the science of self-actualization at scale. It takes all the principles that positive psychology researchers and other academics have defined and puts them in terms that technology creators can implement to bring out the highest potential in people.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+  <span class="page-num">5</span>
+  <div class="intro-text" style="text-align: center;">
+    <p style="font-size: 13pt; line-height: 1.6; color: #333;">Using the methodology explained here, tech creators can measurably unlock human potential at scale.</p>
+    <p style="font-weight: 600; color: #1C1C1E; margin-top: 16px;">Courtney Bigony<br><span style="font-weight: 400; font-size: 10pt; color: #555;">Creator of Positive Product Design</span></p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+  <span class="page-num">6</span>
+  <div class="callout" style="margin: 0;">
+    <p style="font-size: 11pt; line-height: 1.65;">In this guide, &ldquo;science of thriving&rdquo; and &ldquo;self-actualization&rdquo; refers broadly to all sciences that promote life above neutral, including but not limited to humanistic psychology, positive psychology, transpersonal psychology, social psychology, developmental psychology, positive organizational scholarship, and organizational psychology.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">7</span>
+  <div class="credits">
+    <p class="title">The Positive Product Design Guide.</p>
+    <div class="accent-bar"></div>
+    <p style="font-style: italic; margin-bottom: 20px;">This guide is dedicated to the academics who inspire me to create.</p>
+    <p>By: Courtney Bigony, MAPP</p>
+    <p>Contributing Editor: Laura Kramer</p>
+    <p>Design by: Lauren Leggatt</p>
+    <p style="margin-top: 12px; font-size: 10pt;">Co-creators of the Human Potential Index: Courtney Bigony, MAPP, Jeff Smith, PhD, and Scott Barry Kaufman, PhD.</p>
+    <p style="font-size: 9.5pt; line-height: 1.6; margin-top: 10px;">Positive Product Design co-creators and key contributors: Courtney Bigony, Jeff Smith, Laura Kramer, Maru Carrion, Chelsea Margolies, Lauren Leggatt, Huong Le; career strategist, Victoria Zenoff and academic advisors, Lyle Ungar, professor of Computer and Information Science at the University of Pennsylvania and Dan Horowitz, historian, professor of American studies at Smith College, and author of <em>Happier? The History of a Cultural Movement That Aspired to Transform America.</em></p>
+    <p style="margin-top: 24px; font-size: 9pt; color: #999;">&copy; 2026 Positive Product Design.<br>All rights reserved.</p>
+  </div>
+</div>
+
+<div class="page">
+  <span class="page-num">8</span>
+  <h3>Table of Contents</h3>
+  <div class="accent-bar"></div>
+  <div class="toc-section">Section One</div>
+  <div class="toc-item"><span class="toc-title">What is Positive Product Design</span><span class="toc-page">11</span></div>
+  <div class="toc-item"><span class="toc-title">Who This Guide is For</span><span class="toc-page">13</span></div>
+  <div class="toc-item"><span class="toc-title">What You&rsquo;ll Learn</span><span class="toc-page">14</span></div>
+  <div class="toc-section">Section Two</div>
+  <div class="toc-item"><span class="toc-title">Moving Past Outdated Modes of Motivation</span><span class="toc-page">18</span></div>
+  <div class="toc-item"><span class="toc-title">Designing For Lasting Motivation</span><span class="toc-page">20</span></div>
+  <div class="toc-item"><span class="toc-title">A World With Positive Product Design</span><span class="toc-page">23</span></div>
+  <div class="toc-item"><span class="toc-title">Time For a Change</span><span class="toc-page">25</span></div>
+  <div class="toc-section">Section Three</div>
+  <div class="toc-item"><span class="toc-title">Establish Benchmarks With The HPI</span><span class="toc-page">28</span></div>
+  <div class="toc-item"><span class="toc-title">Identify Areas of Weakness</span><span class="toc-page">39</span></div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">9</span>
+  <h3>Table of Contents</h3>
+  <div class="accent-bar"></div>
+  <div class="toc-section">Section Four</div>
+  <div class="toc-item"><span class="toc-title">Research, Ideate, and Innovate</span><span class="toc-page">41</span></div>
+  <div class="toc-item"><span class="toc-title">Innovating Features to Maximize Good</span><span class="toc-page">48</span></div>
+  <div class="toc-item"><span class="toc-title">Optimizing Features to Minimize Harm</span><span class="toc-page">50</span></div>
+  <div class="toc-section">Section Five</div>
+  <div class="toc-item"><span class="toc-title">The PPD Scorecard</span><span class="toc-page">56</span></div>
+  <div class="toc-section">Section Six</div>
+  <div class="toc-item"><span class="toc-title">Case Study: 15Five</span><span class="toc-page">62</span></div>
+  <div class="toc-section">Section Seven</div>
+  <div class="toc-item"><span class="toc-title">The PPD Pledge</span><span class="toc-page">67</span></div>
+  <div class="toc-section">Section Eight</div>
+  <div class="toc-item"><span class="toc-title">Conclusion</span><span class="toc-page">68</span></div>
+  <div class="toc-section">Section Nine</div>
+  <div class="toc-item"><span class="toc-title">References</span><span class="toc-page">71</span></div>
+  <div class="toc-section">Section Ten</div>
+  <div class="toc-item"><span class="toc-title">Appendix I</span><span class="toc-page">73</span></div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">10</span>
+  <h3>Section One</h3>
+  <h1 style="font-size: 28pt; margin-bottom: 20px;">What is Positive<br>Product Design</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+  <p style="font-size: 11pt; color: #555; max-width: 280px; margin: 0 auto;">A method for creating technology that measurably unlocks human potential.</p>
+</div>
+
+<div class="page">
+  <span class="page-num">11</span>
+  <h3>What is Positive Product Design</h3>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>Positive Product Design is a method for creating technology that measurably unlocks human potential. Heavily based in academic research, Positive Product Design helps product creators leverage the science of thriving to design products for positive impact.</p>
+    <p>Designing for positive impact means designing to minimize potential harm. We have natural vulnerabilities in our attention and biases, but with the right direction, designers can help protect these vulnerabilities.</p>
+    <p>Designing for positive impact also means maximizing the good, or in other words, helping people realize their full potential. Minimizing harm is different from maximizing good, and we need both.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">12</span>
+  <h3>What is Positive Product Design</h3>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>This method honors that businesses have revenue goals and acknowledges that user growth and retention will be prioritized. The goal of Positive Product Design is to help designers find the optimum balance between what the business needs and what&rsquo;s best for tech users.</p>
+    <p>There will always be features that must be designed for the business. The purpose of Positive Product Design is to help designers become aware of the vast array of opportunities to improve the lives of users, not just the user experience.</p>
+    <p style="font-weight: 500; color: #1C1C1E;">We can&rsquo;t overlook the larger good. When individuals begin to thrive and become their best selves, they create communities, workplaces, and educational systems that further this effort.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">13</span>
+  <h2>Who This Guide is For</h2>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>This guide is for those interested in building positive technology that helps people lead more meaningful and self-actualized lives.</p>
+    <ul class="bullet-list" style="margin-top: 20px;">
+      <li>CEOs</li>
+      <li>Product leaders</li>
+      <li>Product designers</li>
+      <li>Product managers</li>
+      <li>Engineers</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">14</span>
+  <h2>What You&rsquo;ll Learn</h2>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>This guide will teach you how to design and build technology that helps people feel more energized and fulfilled. Positive Product Design is applicable across multiple domains, including workplace software, education software, social platforms, and technology developed to improve health and wellbeing.</p>
+    <p>Following are the simplified steps of the Positive Product Design method; the chapters that follow will provide the details needed for you and your organization to design products that deliver benefits for the company as much as the people who use it.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">15</span>
+  <h2>The Positive Product Design Method</h2>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p class="section-label" style="margin-bottom: 4px;">Step 1: Establish your product&rsquo;s human potential benchmarks</p>
+    <ul class="bullet-list"><li>Identify areas of weakness or aspects you want to strengthen</li></ul>
+    <p class="section-label" style="margin-bottom: 4px;">Step 2: Research relevant science to guide your design</p>
+    <p class="section-label" style="margin-bottom: 4px;">Step 3: Ideate and test</p>
+    <ul class="bullet-list">
+      <li>Ideate and innovate by upleveling existing features or creating new features</li>
+      <li>Prototype and test</li>
+      <li>Incorporate into your roadmap</li>
+    </ul>
+    <p class="section-label" style="margin-bottom: 4px;">Step 4: Build and measure</p>
+    <ul class="bullet-list">
+      <li>Build and test the impact on the relevant measure</li>
+      <li>Repeat</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center;">
+  <span class="page-num">16</span>
+  <div class="callout" style="margin: 0;">
+    <p style="font-size: 11pt; line-height: 1.65;">The Positive Product Design method is designed to be flexible enough to naturally embed into existing processes.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">17</span>
+  <h3>Section Two</h3>
+  <h1 style="font-size: 26pt; margin-bottom: 20px;">Moving Past<br>Outdated Modes<br>of Motivation</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+</div>
+
+<div class="page">
+  <span class="page-num">18</span>
+  <h3>Outdated Modes of Motivation</h3>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>Today, most software and apps&mdash;especially social media&mdash;motivate users with systems of punishment and reward, mimicking an outdated theory of motivation.</p>
+    <p>Push notifications and endless scrolls of information are a form of positive-intermittent reinforcement that draw people in again and again. Slot machine manufacturers use the same design to keep people glued to their product. This kind of design is used to maximize one metric: user engagement or time spent on screens. It&rsquo;s used to benefit the company, not their users.</p>
+  </div>
+  <div class="callout">
+    <p style="font-size: 10pt; font-style: italic;">&ldquo;Technology&rsquo;s supposed to be good. We&rsquo;ve just mostly been in The Empire Strikes Back period of our technology. It doesn&rsquo;t have to be that way.&rdquo;</p>
+    <span class="attribution">Kara Swisher, on Unlocking Us with Bren&eacute; Brown</span>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">19</span>
+  <h3>Outdated Modes of Motivation</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>It is undisputed that technology has advanced our society in a multitude of ways, but the larger impact on our wellbeing and mental state is now highly questionable. Many argue that technology is doing more harm than good. And dire as it sounds, what it really means is that there is a huge area for opportunity ahead.</p>
+    <p>The carrot-and-stick approach motivates behavior extrinsically, but it does not motivate behavior from something deeper. Extrinsic motivations are based on getting a reward or avoiding a punishment. An example of extrinsic motivation is people working just for the money or paying taxes to avoid a fine.</p>
+    <p>Intrinsic motivations, on the other hand, are more about personal growth and purpose. Think about people who do hobbies because of how they make them feel or working in a team because they enjoy collaboration. Lasting motivation, it has been found, is intrinsic, that is, coming from much deeper preferences and desires. We can build technology that taps into the deeper sources of intrinsic motivation; this guide will show you how.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">20</span>
+  <h2>Designing For Lasting Motivation</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Theories on what drive behavior have evolved significantly through time. Today, one of the most recognized theories of motivation was born from Abraham Maslow, who was one of the first to suggest that people were motivated by higher needs. He believed everyone ultimately wanted growth and self-actualization but had to have basic needs, like food and shelter, met first. His ideas became core to the human potential movement.</p>
+    <p>Unlike traditional psychology, which focuses on eliminating problems or helping people move from negative states to more neutral ones, the humanistic and positive psychologists asked what it takes for people to thrive.</p>
+    <p>Maslow systematically studied historical figures like Albert Einstein, Eleanor Roosevelt, and Abraham Lincoln to develop a list of the characteristics of self-actualizing people. He found that these individuals were motivated by health, growth, and love of humanity.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">21</span>
+  <h3>Designing for Lasting Motivation</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Maslow was not without criticism. Some saw his notion of self-actualization as too individualistic and selfish. Maslow questioned this later in his life, and worked to reconcile how self-actualized people could have such a strong sense of identity but also be so selfless.</p>
+    <p>Abraham Maslow died in 1970 before completing his theory of self-actualization. Cognitive scientist and humanistic psychologist, Scott Barry Kaufman would locate Maslow&rsquo;s unfinished manuscripts years later and refine Maslow&rsquo;s theory using modern science.</p>
+    <p>Picking up where Maslow left off, Kaufman found that 10 of Maslow&rsquo;s proposed characteristics for self-actualization stood up to scientific scrutiny and identified seven principles to becoming a whole person. He was able to prove that self-actualized people don&rsquo;t sacrifice their potential in the service of others, rather they use their full powers in the service of others. In other words, what benefits the individual also benefits the whole of society, creating a positive sum game.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">22</span>
+  <h3>Designing for Lasting Motivation</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Right now, technology is playing a zero sum game. While their profits may be increasing, the wellbeing of their users is on a decline. The question now is: Can businesses prioritize their users as much as their profit?</p>
+    <p>Organizations like Calm, BetterUp, and 15Five show that technology can be good for people and good for business. As of 2026, the meditation and sleep app Calm was valued at approximately $2 billion. As of 2026, BetterUp, a mental health and coaching platform, was valued at over $4.7 billion. As of 2026, 15Five, a holistic performance management platform has raised over $94 million to build technology that helps people thrive at work.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">23</span>
+  <h2>A World With Positive Product Design</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Tech creators, you have the potential to build a world in which technology benefits its users as much as the companies that make it. We could have a place where workplace software unlocks psychological safety and purpose while also transforming managers into positive, conscious leaders. Where social platforms genuinely strengthened relationships and dating apps actually help you meet the right person and stay with them.</p>
+    <p>Where education platforms help children cultivate self-awareness, resilience, and a personal growth mindset. And productivity apps maximize users&rsquo; time and energy. A place where health apps increase the amount of deep sleep people receive, spur movement, and inspire mindful meditation.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">24</span>
+  <h2>Time For a Change</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>There are good reasons now is a time ripe for a change. People everywhere want more from their lives. 2021 saw the greatest number of resignations since records have been kept. Mindfulness has become an entire industry. People are striving for purpose. And it&rsquo;s likely because they are being starved of fulfillment.</p>
+    <p>Research has proven that it&rsquo;s not fame, status, or image that makes people happy or satisfied. There are actually a list of more intangible things they require. People need to:</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>feel psychologically safe and secure;</li>
+      <li>experience autonomy, freedom;</li>
+      <li>feel a sense of control;</li>
+      <li>develop close relationships with others;</li>
+      <li>feel like they belong;</li>
+      <li>feel seen and valued;</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">25</span>
+  <h3>Time For a Change</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>People also need to:</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>be aware of their unique strengths and leverage those strengths in all areas of life;</li>
+      <li>continually grow and develop, set intrinsically motivated goals, and make progress on meaningful work;</li>
+      <li>feel their life has purpose and that they contribute to something greater than the self.</li>
+    </ul>
+    <div class="callout" style="margin-top: 12px;">
+      <p style="font-size: 10pt; font-style: italic;">&ldquo;The task of leadership is to create an alignment of strengths in ways that make a system&rsquo;s weaknesses irrelevant.&rdquo;</p>
+      <span class="attribution">Peter Drucker, Management Consultant and Educator</span>
+    </div>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">26</span>
+  <h3>Time For a Change</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>We are facing a greenfield opportunity to transform technology. Just as companies like Calm, BetterUp, and 15Five have designed technology that helps people realize their full potential, you can build products and features that both protect human vulnerabilities and meet the human needs that are core to feeling more fulfilled.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">27</span>
+  <h3>Section Three</h3>
+  <h1 style="font-size: 24pt; margin-bottom: 20px;">Establish Your<br>Product&rsquo;s Benchmarks<br>With The Human<br>Potential Index</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+</div>
+
+<div class="page">
+  <span class="page-num">28</span>
+  <h3>The Human Potential Index</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>We can only increase what we measure, so it goes without saying, to increase thriving, we must measure how well our products meet the core human needs that lead to that.</p>
+    <p>The Human Potential Index is currently the most complete measure of human potential and can help you create a detailed roadmap for areas of enhancement. Developed with leading self-actualization scientist, Dr. Scott Barry Kaufman and based on the work of over 100 academics, it is the best way to measure all human needs, mindsets, skills, and behaviors central to human thriving.</p>
+  </div>
+  <div class="callout">
+    <p style="font-size: 10pt; font-style: italic;">&ldquo;If the world wants to be serious about achieving progress we need to be much more serious about measuring what matters.&rdquo;</p>
+    <span class="attribution">Max Roser, Founder and Director, Our World in Data</span>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">29</span>
+  <h3>The Human Potential Index</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Organizations often start with a big mission, vision, and goals. Many are aspirational and often reflect some aspect of human thriving. And while most build products that reflect their original ideals, few (if any) measure how well their offerings deliver on their stated mission beyond user growth and engagement.</p>
+    <p>Consider, online educator Coursera, which started with a vision to provide life-transforming learning experiences to anyone, anywhere. To see how they are following through on their vision, they could measure <strong>personal growth mindset</strong> and <strong>mastery</strong>.</p>
+    <p><strong>Meta&rsquo;s</strong> mission is to give people the power to build community and bring the world closer together. They should rank high on <strong>High Quality Relationships</strong>.</p>
+    <p><strong>LinkedIn&rsquo;s</strong> mission is to connect the world&rsquo;s professionals to make them more productive and successful. They should rank high on <strong>Purpose &amp; Meaning</strong>.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">30</span>
+  <h3>The Human Potential Index</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p><strong>Asana&rsquo;s</strong> mission is to help humanity thrive by enabling the world&rsquo;s teams to work together effortlessly. A relevant thriving construct is <strong>Flow</strong>.</p>
+    <p><strong>Apollo Neuro</strong> is on a mission to empower people to take charge of their mental health. A relevant construct is <strong>Resilience</strong>.</p>
+    <p><strong>Calm&rsquo;s</strong> mission is to make the world happier and healthier. They should rank high on <strong>Health &amp; Vitality</strong>.</p>
+    <p>With 99 questions covering 33 constructs, the Human Potential Index offers companies and individual tech creators the best way to measure how well their individual features and products are delivering on the original goals.</p>
+    <p style="font-size: 8pt; color: #999; margin-top: 12px;">All product names, logos, and brands are trademarks of their respective owners. Use of these names does not imply endorsement with Positive Product Design unless otherwise noted.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">31</span>
+  <h3>The 33 HPI Constructs</h3>
+  <div class="accent-bar"></div>
+  <div class="hpi-list">
+    Health &amp; Vitality<br>Financial Wellbeing<br>Psychological Safety<br>Resilience<br>Autonomy<br>Strong Relationships<br>Self-Awareness<br>Healthy Selfishness<br>Self-Compassion<br>Intrinsic Motivation<br>Strengths<br>Personal Values<br>Self Regulation<br>Mastery<br>Self-Esteem<br>Optimism<br>Gratitude<br>Curiosity<br>Compassion For Others<br>Personal Growth Mindset<br>Progress<br>Meaningful Contribution<br>Mattering<br>Passion<br>Purpose &amp; Meaning<br>Flow - Absorption<br>Flow - Challenge &amp; Skill<br>Positive Identity<br>Hope<br>Inspiration<br>Peak Experiences<br>Creativity<br>Self-Actualization
+  </div>
+  <p style="font-size: 9pt; color: #555; margin-top: 12px;">The full measurement, which is currently under development, will include over 70 constructs.</p>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+<div class="page">
+  <span class="page-num">32</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Health &amp; Vitality</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am healthy.<br> <span style="color:#6B917D;font-weight:600;">+</span> I feel energized.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am able to take adequate time to rest and recover.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Financial Wellbeing</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am financially secure.<br> <span style="color:#6B917D;font-weight:600;">+</span> My finances are rarely a source of stress for me.<br> <span style="color:#6B917D;font-weight:600;">+</span> I rarely worry about money.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Psychological Safety</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> It is safe to take a risk with people I am close to.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am able to bring up problems and tough issues with others I am close to.<br> <span style="color:#6B917D;font-weight:600;">+</span> My unique skills and talents are valued and utilized by those I am close to.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Resilience</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I tend to bounce back quickly after hard times.<br> <span style="color:#6B917D;font-weight:600;">+</span> It does not take me long to recover from a stressful event.<br> <span style="color:#6B917D;font-weight:600;">+</span> I usually come through difficult times with little trouble.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Personal Autonomy</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I&rsquo;m free to do things in my own way.<br> <span style="color:#6B917D;font-weight:600;">+</span> I feel my choices express my &ldquo;true self&rdquo;.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am free to do what interests me.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">High Quality Relationships</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I do not have any difficulty expressing my feelings to people I am close to.<br> <span style="color:#6B917D;font-weight:600;">+</span> I try to develop meaningful relationships with others.<br> <span style="color:#6B917D;font-weight:600;">+</span> I take the time to understand people I am close to.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div><div class="page">
+  <span class="page-num">33</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Self-Awareness</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I actively attempt to understand myself as best as possible.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am aware of my inner thoughts and feelings.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am in touch with my motives and desires.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Healthy Selfishness</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I balance my own needs with the needs of others.<br> <span style="color:#6B917D;font-weight:600;">+</span> I have healthy boundaries (e.g., I protect my needs).<br> <span style="color:#6B917D;font-weight:600;">+</span> I have a healthy form of selfishness that does not hurt others.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Self-Compassion</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am there for myself in times of need.<br> <span style="color:#6B917D;font-weight:600;">+</span> During tough times, I am kind to myself.<br> <span style="color:#6B917D;font-weight:600;">+</span> I treat myself like a good friend in times of need.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Intrinsic Motivation</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> My work is aligned with my deepest interests.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work is enjoyable.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work makes me feel vital and alive.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Strengths Discovery &amp; Alignment</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am aware of my greatest strengths.<br> <span style="color:#6B917D;font-weight:600;">+</span> I regularly use my strengths.<br> <span style="color:#6B917D;font-weight:600;">+</span> I try to use my strengths in new ways.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Personal Values</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am aware of my personal values that are most important to me.<br> <span style="color:#6B917D;font-weight:600;">+</span> I try to align my actions with my personal values.<br> <span style="color:#6B917D;font-weight:600;">+</span> I hold steadfast to my personal values, even when they&rsquo;re challenged.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div><div class="page">
+  <span class="page-num">34</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Self-Regulation</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am able to accomplish the goals I set for myself.<br> <span style="color:#6B917D;font-weight:600;">+</span> I set goals for myself and keep track of my progress.<br> <span style="color:#6B917D;font-weight:600;">+</span> I have a lot of willpower.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Mastery</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am highly effective at the things I do.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am almost always able to accomplish what I try for.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often fulfill my goals.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Self-Esteem</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am very comfortable with myself.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am secure in my sense of self-worth.<br> <span style="color:#6B917D;font-weight:600;">+</span> I like myself.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Optimism</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am optimistic about my future in general.<br> <span style="color:#6B917D;font-weight:600;">+</span> I have a positive outlook on life.<br> <span style="color:#6B917D;font-weight:600;">+</span> I expect more good things in my life than bad.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Gratitude</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I have so much in life to be thankful for.<br> <span style="color:#6B917D;font-weight:600;">+</span> When I look at the world I see so much to be grateful for.<br> <span style="color:#6B917D;font-weight:600;">+</span> If I had to list everything that I felt grateful for, it would be a very long list.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Curiosity</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I view challenging situations as an opportunity to grow and learn.<br> <span style="color:#6B917D;font-weight:600;">+</span> I find it fascinating to learn new information.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am always looking for experiences that challenge how I think about myself and the world.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div><div class="page">
+  <span class="page-num">35</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Compassion for Others</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am a very compassionate person.<br> <span style="color:#6B917D;font-weight:600;">+</span> Taking care of others gives me a warm feeling inside.<br> <span style="color:#6B917D;font-weight:600;">+</span> When I see someone hurt or in need, I feel a powerful urge to take care of them.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Personal Growth Mindset</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am constantly striving for personal growth.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am constantly striving to improve myself.<br> <span style="color:#6B917D;font-weight:600;">+</span> I constantly strive to be a better person.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Progress</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I have clear short term goals.<br> <span style="color:#6B917D;font-weight:600;">+</span> I regularly make progress on my most important goals.<br> <span style="color:#6B917D;font-weight:600;">+</span> I have the resources I need to make regular progress on my goals.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Meaningful Contribution</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> My work makes a difference.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work has a positive impact.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work makes a contribution to society.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Mattering</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> Often, people trust me with things that are important to them.<br> <span style="color:#6B917D;font-weight:600;">+</span> People tend to rely on me for support.<br> <span style="color:#6B917D;font-weight:600;">+</span> When people need help, they come to me.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div><div class="page">
+  <span class="page-num">36</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Passion</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> My work is in harmony with other aspects of myself.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work is in harmony with the other activities in my life.<br> <span style="color:#6B917D;font-weight:600;">+</span> When I&rsquo;m engaged in my work, it makes me feel good about who I am.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Purpose &amp; Meaning</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I have a personal purpose in life that will help the good of humankind.<br> <span style="color:#6B917D;font-weight:600;">+</span> I feel as though I have some important task to fulfill in this lifetime.<br> <span style="color:#6B917D;font-weight:600;">+</span> I feel a great responsibility and duty to accomplish a personal mission in life.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Flow &mdash; Absorption</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I often lose all sense of time during my day-to-day activities.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often get completely absorbed in what I am doing.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often get completely lost in thought during my day-to-day activities.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Flow &mdash; Challenge &amp; Skill</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I feel just the right amount of challenge.<br> <span style="color:#6B917D;font-weight:600;">+</span> I know what I have to do each step of the way.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often strike a good match between my skill and challenge level.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Positive Identity</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I continually strive toward becoming my ideal and best self.<br> <span style="color:#6B917D;font-weight:600;">+</span> My identity encompasses the use of my greatest strengths.<br> <span style="color:#6B917D;font-weight:600;">+</span> The different aspects of my self are all in harmony with each other.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div><div class="page">
+  <span class="page-num">37</span><h3>The Human Potential Index</h3><div class="accent-bar"></div><table class="platform-table"><tr><th style="width:28%;">Thriving Construct</th><th>Questions</th></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Hope</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> There are many ways for me to get the most important things in my life.<br> <span style="color:#6B917D;font-weight:600;">+</span> I can always find a way around any problem.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am hopeful I can reach my goals even if I have to take a different route.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Inspiration in Life</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I frequently feel inspired.<br> <span style="color:#6B917D;font-weight:600;">+</span> My work feels compelling.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am inspired by the work I do.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Peak Experiences</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I often have peak experiences in which I feel new horizons and possibilities opening up for myself and for others.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often have peak experiences in which I feel one with all people and things on this planet.<br> <span style="color:#6B917D;font-weight:600;">+</span> I often have peak experiences in which I feel a profound transcendence of my selfish concerns.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Creativity</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I come up with novel ideas that tend to be useful.<br> <span style="color:#6B917D;font-weight:600;">+</span> I come up with lots of novel ideas at work.<br> <span style="color:#6B917D;font-weight:600;">+</span> My ideas tend to be very innovative.<br></td></tr><tr><td style="font-weight:600;font-size:8.5pt;color:#1C1C1E;">Self-Actualization</td><td style="font-size:8.5pt;line-height:1.5;"><span style="color:#6B917D;font-weight:600;">+</span> I am all that I could be.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am operating close to my full capacity.<br> <span style="color:#6B917D;font-weight:600;">+</span> I am fulfilling my full potential.<br></td></tr></table><span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span></div>
+<div class="page">
+  <span class="page-num">38</span>
+  <h2>How Your Organization Can Use The Human Potential Index</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-weight: 600; color: #1C1C1E;">Assess individual features</p>
+    <p><strong>Step 1:</strong> Identify the thriving construct(s) and questions most related to your company&rsquo;s mission.</p>
+    <p><strong>Step 2:</strong> Select the feature that should be delivering on the construct(s).</p>
+    <p><strong>Step 3:</strong> Set a baseline by asking the question(s) before and after an individual uses that feature.</p>
+    <p><strong>Step 4:</strong> Look at correlations between feature use and survey results. Did their answers increase? If not, that feature may not have enough positive impact.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">39</span>
+  <h3>How to Use the HPI</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-weight: 600; color: #1C1C1E;">Assess the entire product</p>
+    <p><strong>Step 1:</strong> Identify the thriving construct(s) and questions most related to your company&rsquo;s mission.</p>
+    <p><strong>Step 2:</strong> Present question(s) to first-time users.</p>
+    <p><strong>Step 3:</strong> Repeat question(s) at 3, 6, and 12 months after first use.</p>
+  </div>
+  <div class="divider"></div>
+  <h2>Identify Areas of Weakness or Aspects to Strengthen</h2>
+  <div class="intro-text">
+    <p>After using the Human Potential Index you&rsquo;ll have a good idea of how well you&rsquo;re delivering on your original goals. If you&rsquo;re strong in the areas you looked at, great! You can move on to innovating new features. If you scored lower, however, it may be time to step back and determine the best course of action.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">40</span>
+  <h3>Section Four</h3>
+  <h1 style="font-size: 24pt; margin-bottom: 20px;">Research, Ideate,<br>and Innovate<br>Product Features</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+</div>
+
+<div class="page">
+  <span class="page-num">41</span>
+  <h3>Research, Ideate, and Innovate</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Designers have used several sources of information to innovate in the past&mdash;user research, market research, internal feedback. Now add to that list the latest science of thriving, which offers tech creators a new way to think about products and features.</p>
+    <p>Instead of looking at each source of information separately, consider the science of thriving and self-actualization as you conduct customer research, market research, and gather internal feedback.</p>
+  </div>
+  <div class="callout">
+    <p style="font-size: 10pt; font-style: italic;">&ldquo;There&rsquo;s still a lot of academic research that hasn&rsquo;t been leveraged yet. There&rsquo;s still a gap between what social science research shows and how a lot of businesses operate.&rdquo;</p>
+    <span class="attribution">Adam Grant, Organizational Psychologist and Professor of Management at Wharton</span>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">42</span>
+  <h3>Sources of Product Innovation</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>By combining several sources of input, you can close the gap between what the science of thriving shows us people need and what our current technology is offering.</p>
+    <ul class="bullet-list" style="font-size: 11pt;">
+      <li><strong>User Research:</strong> Customer feedback and usage data</li>
+      <li><strong>The Science of Thriving:</strong> Leading research findings</li>
+      <li><strong>Internal Feedback:</strong> Key stakeholder and employee feedback</li>
+      <li><strong>Market Research:</strong> Industry and competitor data</li>
+    </ul>
+    <p>Positive Product Design aims to design for impact. While I urge everyone to design with the goal of increasing thriving, designing to minimize potential harm is just as impactful.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">43</span>
+  <h2>Identifying The Right Research For Innovation</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body"><p><strong>Step 1:</strong> Start by identifying your platform type.</p></div>
+  <table class="platform-table" style="margin-top: 8px;">
+    <tr><th>Platform Type</th><th>Software Examples</th><th>Relevant Science</th></tr>
+    <tr><td>Workplace</td><td>Work Apps, Productivity Software, Collaboration Software</td><td>Organizational Psychology, Positive Org. Scholarship, Humanistic &amp; Positive Psychology</td></tr>
+    <tr><td>Education</td><td>Education Apps, Learning Technologies</td><td>Developmental Psychology, Humanistic &amp; Positive Psychology</td></tr>
+    <tr><td>Social</td><td>Social Platforms, Dating Apps</td><td>Social Psychology, Humanistic &amp; Positive Psychology</td></tr>
+    <tr><td>Health</td><td>Fitness Apps, Lifestyle Apps, Finance Apps</td><td>Health Psychology, Humanistic &amp; Positive Psychology</td></tr>
+  </table>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">44</span>
+  <h3>Identifying the Right Research</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p><strong>Step 2:</strong> Search for relevant and actionable research related to your mission that can be turned into product features. Academics are spreading science through social media, books, blogs, TED Talks, and YouTube videos.</p>
+    <p>I have built a <a href="https://docs.google.com/spreadsheets/d/14Bp0Bv_zv8jmaqRtA-XqZSM33o7se2Tk/edit?gid=1519260276#gid=1519260276" style="color: #6B917D; text-decoration: underline;">Positive Product Design Library</a> for easy reference with academics and trustworthy sources organized by software type.</p>
+    <p>Research can also be sourced from peer reviewed journal articles using Google Scholar. Type in keywords related to your product or mission. Click on versions to find an open access/free version.</p>
+    <p><strong>Step 3:</strong> Identify any gaps between your product and the science and develop a plan to prototype, test, and build.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">45</span>
+  <h2 style="font-size: 18pt;">Examples: Workplace Software</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p><strong>Recruiting software</strong> (think Greenhouse and Lever) can leverage organizational psychology research on Realistic Job Previews. Research suggests giving applicants a realistic preview of what a job entails helps to reduce turnover.</p>
+    <p><strong>Collaboration software</strong> (think Asana or Slack) can leverage science on deep work. Research shows deep, undistracted work leads to extraordinary performance. Google&rsquo;s Focus Feature for Google Calendar automatically declines meeting requests.</p>
+    <p>Research on teams shows the ideal team size is 4&ndash;6, with no more than 10 people. Collaboration software can nudge users when teams get too big.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">46</span>
+  <h3>Examples: Workplace Software</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p><strong>Google Workspace</strong> can leverage organizational psychology to increase psychological safety. Research suggests clarity of expectations increases psychological safety. Google can nudge users in gCal to set clear expectations when declining an invite.</p>
+    <p><strong>Music platforms</strong> (think Spotify and iTunes) can leverage research showing listening to background music with lyrics hinders worker attention by developing instrumental only playlists for study, focus, and productivity.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">47</span>
+  <h2 style="font-size: 18pt;">Examples: Education &amp; Social Software</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p><strong>Education software</strong> can leverage developmental psychology research showing traditional lectures are the worst way for students to learn. Students in classes with traditional lecturing are 1.5x more likely to fail. All students learn best from a combination of listening, reading, and doing.</p>
+    <p><strong>Dating apps</strong> can leverage relationship research. Many algorithms match based on similarity, which is a weak predictor of long term success. Longer term success depends on emotional stability, kindness, loyalty, and growth mindset. Hinge uses the Nobel prize-winning Gale-Shapley algorithm.</p>
+    <p><strong>Social platforms</strong> can leverage research on positive identity. Research shows identifying top strengths and values are central to developing positive identities. Social apps can nudge people to &ldquo;Marie Kondo&rdquo; their social media.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">48</span>
+  <h2>Innovating Features to Maximize Good</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>A commitment to making products that have deeper benefits can be as simple as remembering to maximize the good and minimize the harm. Let people choose how they want to experience your app and help them use your product in healthy ways.</p>
+    <p style="font-weight: 600; color: #1C1C1E;">Promote personal choice, agency, and control</p>
+    <p>Human thriving cannot result without freedom, agency, and choice. Letting people decide how they want to experience your app can have a huge impact.</p>
+    <p>When it comes to data privacy, designers can promote personal choice by:</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>Clearly requesting permission before tracking and sharing data.</li>
+      <li>Decentralizing data storage and allowing individuals to be in charge of their personal data.</li>
+      <li>Transferring ownership to individual users.</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">49</span>
+  <h3>Innovating Features to Maximize Good</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-weight: 600; color: #1C1C1E;">Encourage healthy product use</p>
+    <p>The single best predictor of behavior is ease of use. Make it as easy as possible for people to do what&rsquo;s healthiest. You don&rsquo;t need to have only healthy features; providing healthier alternatives is just as good.</p>
+    <p>15Five developed a performance ratings feature based on market demand. However, they recognized that ratings promote bias so they developed a ratings system that reduces idiosyncratic rater bias and offers a more holistic view of a person.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">50</span>
+  <h2>Optimizing Features to Minimize Harm</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>The foundation of Positive Product Design is to do no harm. When we refer to minimizing harm we mean protecting human vulnerabilities.</p>
+  </div>
+  <div class="callout">
+    <p style="font-size: 10pt; font-style: italic;">&ldquo;The major problem in technology isn&rsquo;t privacy, it&rsquo;s misalignment with our innate psychological vulnerabilities.&rdquo;</p>
+    <span class="attribution">Tristan Harris, Center for Humane Technology</span>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">51</span>
+  <h2 style="font-size: 18pt;">Reduce Notification and Information Overload</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Human attention and willpower is limited. When people are bombarded with notifications, they become distracted, less present, and overwhelmed.</p>
+    <p>Reduce notification and information overload by:</p>
+    <ul class="bullet-list" style="font-size: 11pt;">
+      <li>Creating a list of all notifications and eliminating unnecessary ones.</li>
+      <li>Allowing people to batch notifications into digests.</li>
+      <li>Making it easy for people to adjust or turn off notifications.</li>
+      <li>Sending a reminder to direct people to their notification settings.</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">52</span>
+  <h2 style="font-size: 18pt;">Increase the Quality of Screen Time</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Adults spend more than 6 hours a day on digital media. Time alone is a poor metric to gauge the effect on wellbeing. Instead of trying to restrict screen time, focus on maximizing the value of time spent on apps.</p>
+    <p>15Five developed a weekly check-in and 1-on-1 feature that maximizes the quality of conversations between managers and team members. Employees spend 15 minutes a week reflecting, and managers read updates in five minutes. This helps both focus on what matters most.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">53</span>
+  <h2 style="font-size: 18pt;">Account for and Reduce Human Biases</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>All humans are prone to bias. To reduce human biases, identify the top one to two biases related to your product and develop features to mitigate them.</p>
+    <p>15Five developed a ratings alternative called the Private Manager Assessment. They ask managers what they would do with each team member rather than what they think of that individual, reducing the idiosyncratic rater bias. To reduce recency bias, 15Five developed a feature that allows managers and employees to reference past performance data for reviews.</p>
+    <div class="callout" style="margin-top: 10px;">
+      <p style="font-size: 9pt;">Most assessments of performance reveal more about the rater (62%) than the actual performance of the person being rated (21%), also known as the idiosyncratic rater bias.</p>
+    </div>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">54</span>
+  <h2 style="font-size: 16pt;">Think Through the Potential Negative Impact of Features</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>All technology used to extremes can cause harm, even when the intention was good. Facebook&rsquo;s like button was originally intended to uplift, but when used to extremes by teenagers with low self-esteem it may have detrimental effects.</p>
+    <p>When planning features, ask: What could the negative impact be?</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>Assume the feature will be used by teens wired for risk-taking and peer relationships.</li>
+      <li>Assume the feature will be used to extremes and overused.</li>
+      <li>Assume the feature will be used by people high in neuroticism.</li>
+      <li>Assume the feature will be used in a low trust, low psychological safety environment.</li>
+    </ul>
+    <p style="font-size: 10pt;">Thinking through these potential use cases will buffer against unintended consequences.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">55</span>
+  <h3>Section Five</h3>
+  <h1 style="font-size: 26pt; margin-bottom: 20px;">The Positive<br>Product Design<br>Scorecard</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+  <p style="font-size: 11pt; color: #555; max-width: 280px; margin: 0 auto;">A simple way to assess how well your product minimizes harm and maximizes good.</p>
+</div>
+
+<div class="page">
+  <span class="page-num">56</span>
+  <h3>The PPD Scorecard</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>The best way to assess the impact of your product is the Human Potential Index; however if this more rigorous assessment feels daunting, I&rsquo;ve included this simple scorecard.</p>
+    <p>Every tech company will score differently based on their unique strengths and weaknesses.</p>
+  </div>
+  <div class="callout">
+    <p style="font-size: 10pt; font-style: italic;">&ldquo;An interface is humane if it is responsive to human needs and considerate of human frailties.&rdquo;</p>
+    <span class="attribution">Jef Raskin, Developer of Apple Macintosh</span>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">57</span>
+  <h2 style="font-size: 18pt;">Minimizing Harm</h2>
+  <div class="accent-bar"></div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company reduce notifications and information overload?</p>
+    <p class="score-item">1. People are currently bombarded with notifications and information overload.</p>
+    <p class="score-item">2. People are only somewhat protected from notification and information overload.</p>
+    <p class="score-item">3. People can easily reduce notifications and are protected from overload.</p>
+  </div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company maximize the quality of screen time?</p>
+    <p class="score-item">1. Most features are designed to only maximize user engagement.</p>
+    <p class="score-item">2. Some features are designed to maximize the quality of screen time as well.</p>
+    <p class="score-item">3. Most features are designed to maximize the quality of screen time.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">58</span>
+  <h3>Minimizing Harm</h3>
+  <div class="accent-bar"></div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company account for and reduce human biases?</p>
+    <p class="score-item">1. We do not currently account for or reduce human biases.</p>
+    <p class="score-item">2. Features are somewhat designed to reduce human biases.</p>
+    <p class="score-item">3. We account for and reduce the top 1&ndash;2 human biases.</p>
+  </div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company think through and minimize the potential negative impact?</p>
+    <p class="score-item">1. We do not currently have a process in place.</p>
+    <p class="score-item">2. We occasionally think through and minimize the potential negative impact.</p>
+    <p class="score-item">3. We have a process in place and actively take steps to minimize harm.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="score-range">
+    <p><strong>Score 4&ndash;6:</strong> Technology doesn&rsquo;t yet minimize harm.</p>
+    <p><strong>Score 7&ndash;9:</strong> Moderately minimizes harm.</p>
+    <p><strong>Score 10&ndash;12:</strong> Minimizes harm and protects human vulnerabilities.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">59</span>
+  <h2 style="font-size: 18pt;">Maximizing Good</h2>
+  <div class="accent-bar"></div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company measure the positive psychological impact?</p>
+    <p class="score-item">1. We do not currently measure beyond user growth and engagement.</p>
+    <p class="score-item">2. We sometimes measure the positive psychological impact.</p>
+    <p class="score-item">3. We currently measure the positive psychological impact.</p>
+  </div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company develop features using the latest science of thriving?</p>
+    <p class="score-item">1. We do not currently develop features out of the latest science.</p>
+    <p class="score-item">2. Some features are developed using the latest science.</p>
+    <p class="score-item">3. Most features are aligned to the latest science.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">60</span>
+  <h3>Maximizing Good</h3>
+  <div class="accent-bar"></div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company encourage healthy product use?</p>
+    <p class="score-item">1. We do not currently encourage healthy product use in app.</p>
+    <p class="score-item">2. We encourage healthy product use in some places.</p>
+    <p class="score-item">3. We encourage healthy product use as much as possible.</p>
+  </div>
+  <div class="scorecard-q">
+    <p class="q-title">How well does your company promote personal choice, agency, and control?</p>
+    <p class="score-item">1. We do not currently promote personal choice, agency, and control.</p>
+    <p class="score-item">2. We promote it, but not consistently.</p>
+    <p class="score-item">3. We promote personal choice, agency, and control whenever possible.</p>
+  </div>
+  <div class="divider"></div>
+  <div class="score-range">
+    <p><strong>Score 4&ndash;6:</strong> Technology doesn&rsquo;t yet maximize good.</p>
+    <p><strong>Score 7&ndash;9:</strong> Moderately maximizes good.</p>
+    <p><strong>Score 10&ndash;12:</strong> Maximizes good and helps people realize their full potential.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">61</span>
+  <h3>Section Six</h3>
+  <h1 style="font-size: 28pt; margin-bottom: 20px;">Case Study:<br>15Five</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+</div>
+
+<div class="page">
+  <span class="page-num">62</span>
+  <h3>Case Study: 15Five</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Human-centered workplace technology start-up, 15Five, builds software with engagement, performance, and OKR features, enabling HR leaders to drive meaningful business impact.</p>
+    <p>Using the Positive Product Design method, they have designed features that unlock psychological safety, increase intrinsic motivation, strengthen relationships, and help people foster a growth mindset and counter biases.</p>
+    <p>15Five&rsquo;s mission is to create highly engaged, high-performing organizations by helping people become their best selves. Their vision is to unlock the potential of every member of the global workforce.</p>
+    <p>Through an engagement-type survey, 15Five currently measures three constructs from the Human Potential Index: <strong>psychological safety</strong>, <strong>autonomy</strong>, and <strong>purpose &amp; meaning</strong>.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">63</span>
+  <h2 style="font-size: 16pt;">A Feature Designed to Increase Psychological Safety</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>15Five&rsquo;s check-in feature aligns with the science of recurring 1-on-1&rsquo;s. Science shows effective 1-on-1 conversations include two critical steps: a one-time role negotiation session to clarify expectations and regular, ongoing 1-on-1 meetings.</p>
+    <p>The one-time role negotiation session increases psychological safety by clarifying the role and responsibilities. Research shows role clarity helps to cultivate psychological safety because a clear understanding of expectations gives people more confidence to speak up.</p>
+    <p>Recurring 1-on-1&rsquo;s that include both steps are shown to improve productivity and engagement, however most companies miss the critical first step to ensure role clarity.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">64</span>
+  <h2 style="font-size: 16pt;">A Feature Developed to Increase Intrinsic Motivation</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>15Five&rsquo;s Objectives feature, originally inspired by the OKR methodology highlighted in John Doerr&rsquo;s (2018) <em>Measure What Matters</em>, is a framework for defining and tracking business objectives and their outcomes.</p>
+    <p>The Objectives feature aligns with the science of goal setting. Research suggests goals that are more intrinsically motivating, enjoyable, and aligned with an employee&rsquo;s interests motivate high performance. 15Five enables employees to create goals aligned to their interests.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">65</span>
+  <h2 style="font-size: 16pt;">Assessing with the Human Potential Index</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>Through an engagement type survey, 15Five measures three constructs from the Human Potential Index&mdash;psychological safety, autonomy, and purpose &amp; meaning. The survey is confidential and designed to be taken every 3 to 6 months.</p>
+    <p>15Five recently implemented their engagement survey and continues to gather data on how their product features increase thriving and create highly-engaged, high-performing organizations by helping people become their best selves.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">66</span>
+  <h3>Section Seven</h3>
+  <h2>The Positive Product Design Pledge</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>The Positive Product Design Collective is a community for companies and tech creators who publicly pledge to design for good and help humanity thrive together.</p>
+    <p style="font-weight: 600; color: #1C1C1E; margin-top: 10px;">Helping People Realize Their Full Potential by:</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>Measuring the positive psychological impact of their products/features</li>
+      <li>Aligning their technology to the science of thriving</li>
+      <li>Encouraging healthy product use</li>
+      <li>Promoting personal choice, agency, and control</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">67</span>
+  <h3>The PPD Pledge</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-weight: 600; color: #1C1C1E;">Protecting Human Vulnerabilities by:</p>
+    <ul class="bullet-list" style="font-size: 10pt;">
+      <li>Reducing notifications and information overload</li>
+      <li>Maximizing the quality of screen time</li>
+      <li>Accounting for and reducing human biases</li>
+      <li>Thinking through and minimizing the potential negative psychological impact of design features</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">68</span>
+  <h3>Section Eight</h3>
+  <h2>Conclusion</h2>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>Technology can certainly bring out the worst in all of us, but it also has the power to bring out the best side of human nature. This is my ultimate goal and the reason I dreamed up the Positive Product Design method.</p>
+    <p>By creating a positive sum game between the world of academia and technology, businesses can innovate and people get access to healthier technology.</p>
+    <p>Tech creators, are you ready to join our community and co-create the modern human potential movement? It&rsquo;s time to help humanity thrive, together.</p>
+    <p style="margin-top: 20px;">Learn more at <strong>courtneybigony.com</strong>.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">69</span>
+  <h3>About the Creator</h3>
+  <h2>About Courtney</h2>
+  <div class="accent-bar"></div>
+  <div class="intro-text">
+    <p>Courtney Bigony is on a mission to unlock human potential at scale. She helps companies build technology and AI that help people thrive and speaks about how Silicon Valley can join together in a movement to unlock human potential at scale.</p>
+    <p>She has a Master&rsquo;s in Applied Positive Psychology from the University of Pennsylvania, where she studied with Martin Seligman, the father of positive psychology.</p>
+    <p>Positive Product Design was selected by Fast Company as a 2021 World Changing Ideas finalist in the Wellness Category.</p>
+    <p style="margin-top: 16px; font-weight: 600; color: #1C1C1E;">Want to work with Courtney?</p>
+    <p>She can be reached at <strong>courtneybigony.com</strong>.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">70</span>
+  <h3>Section Nine</h3>
+  <h2>References</h2>
+  <div class="accent-bar"></div>
+  <div class="ref-text">
+    <p>Amabile, T., &amp; Kramer, S. (2011). <em>The progress principle.</em> Harvard Business Review Press.</p>
+    <p>Bakker, A. B. (2008). The work-related flow inventory. <em>J. of Vocational Behavior, 72</em>(3), 400-414.</p>
+    <p>Brown, J. M., Miller, W. R., &amp; Lawendowski, L. A. (1999). The self regulation questionnaire. In <em>Innovations in clinical practice</em> (Vol. 17, pp. 281-293).</p>
+    <p>Carmeli, A., Brueller, D., &amp; Dutton, J. E. (2009). Learning behaviours in the workplace. <em>Systems Research and Behavioral Science, 26</em>(1), 81-98.</p>
+    <p>Dutton, J. E., Roberts, L. M., &amp; Bednar, J. (2010). Pathways for positive identity construction at work. <em>Academy of Management Review, 35</em>(2), 265-293.</p>
+    <p>Edmondson, A. (1999). Psychological safety and learning behavior in work teams. <em>Administrative Science Quarterly, 44</em>(2), 350-383.</p>
+    <p>Elliott, G. C., Kao, S., &amp; Grant, A. M. (2004). Mattering: Empirical validation. <em>Self and Identity, 3</em>(4), 339-354.</p>
+    <p>Engeser, S., &amp; Rheinberg, F. (2008). Flow, performance and moderators of challenge-skill balance. <em>Motivation and Emotion, 32</em>(3), 158-172.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">71</span>
+  <h3>References</h3>
+  <div class="accent-bar"></div>
+  <div class="ref-text">
+    <p>Karwowski, M., Lebuda, I., &amp; Wi&#347;niewska, E. (2018). Measuring creative self-efficacy. <em>Int. J. of Creativity &amp; Problem Solving, 28</em>(1), 45-57.</p>
+    <p>Kashdan, T. B., et al. (2020). The five-dimensional curiosity scale revised. <em>Personality and Individual Differences, 157</em>, 109836.</p>
+    <p>Kaufman, S. B. (2018). Self-actualizing people in the 21st century. <em>J. of Humanistic Psychology, 00</em>(0), 1-33.</p>
+    <p>Kaufman, S. B., &amp; Jauk, E. (2020). Healthy selfishness and pathological altruism. <em>Frontiers in Psychology, 11</em>, 1006.</p>
+    <p>Kernis, M. H., &amp; Goldman, B. M. (2006). A multicomponent conceptualization of authenticity. In <em>Advances in Experimental Social Psychology</em> (Vol. 38, pp. 283-357).</p>
+    <p>McCullough, M. E., et al. (2002). The grateful disposition. <em>J. of Personality and Social Psychology, 82</em>(1), 112-127.</p>
+    <p>Peterson, C., &amp; Seligman, M. E. P. (2004). <em>Character strengths and virtues.</em> Oxford University Press.</p>
+    <p>Prawitz, A. D., et al. (2006). InCharge financial distress/financial well-being scale. <em>J. of Financial Counseling and Planning, 17</em>(1), 34-50.</p>
+    <p>Ryan, R. M., &amp; Frederick, C. (1997). On energy, personality, and health. <em>J. of Personality, 65</em>(3), 529-565.</p>
+    <p>Ryff, C. D. (1989). Happiness is everything, or is it? <em>J. of Personality and Social Psychology, 57</em>(6), 1069-1081.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">72</span>
+  <h3>References</h3>
+  <div class="accent-bar"></div>
+  <div class="ref-text">
+    <p style="margin-bottom: 4px;">Scarpa, M. P., et al. (2021). Assessing multidimensional mattering. <em>J. of Community Psychology.</em></p>
+    <p style="margin-bottom: 4px;">Schwartz, S. H., et al. (2012). Refining the theory of basic individual values. <em>J. of Personality and Social Psychology, 103</em>(4), 663-688.</p>
+    <p style="margin-bottom: 4px;">Sheldon, K. M. (2002). The self-concordance model. In <em>Handbook of Self-Determination Research</em> (pp. 65-86).</p>
+    <p style="margin-bottom: 4px;">Sheldon, K. M., &amp; Elliot, A. J. (1999). Goal striving, need satisfaction. <em>J. of Personality and Social Psychology, 76</em>(3), 482.</p>
+    <p style="margin-bottom: 4px;">Sheldon, K. M., &amp; Hilpert, J. C. (2012). The balanced measure of psychological needs. <em>Motivation and Emotion, 36</em>(4), 439-451.</p>
+    <p style="margin-bottom: 4px;">Shiota, M. N., et al. (2006). Positive emotion dispositions. <em>J. of Positive Psychology, 1</em>(2), 61-71.</p>
+    <p style="margin-bottom: 4px;">Smith, B. W., et al. (2008). The brief resilience scale. <em>Int. J. of Behavioral Medicine, 15</em>(3), 194-200.</p>
+    <p style="margin-bottom: 4px;">Snyder, C. R., et al. (1991). The will and the ways. <em>J. of Personality and Social Psychology, 60</em>(4), 570-585.</p>
+    <p style="margin-bottom: 4px;">Steger, M. F., et al. (2006). The meaning in life questionnaire. <em>J. of Counseling Psychology, 53</em>(1), 80-93.</p>
+    <p style="margin-bottom: 4px;">Su, R., Tay, L., &amp; Diener, E. (2014). The CIT and BIT. <em>Applied Psychology: Health and Well-Being, 6</em>(3), 251-279.</p>
+    <p style="margin-bottom: 4px;">Tafarodi, R. W., &amp; Swann Jr, W. B. (2001). Two-dimensional self-esteem. <em>Personality and Individual Differences, 31</em>(5), 653-673.</p>
+    <p style="margin-bottom: 4px;">Thrash, T. M., &amp; Elliot, A. J. (2003). Inspiration as a psychological construct. <em>J. of Personality and Social Psychology, 84</em>(4), 871-889.</p>
+    <p style="margin-bottom: 4px;">Vallerand, R. J., et al. (2003). On obsessive and harmonious passion. <em>J. of Personality and Social Psychology, 85</em>(4), 756-767.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+  <span class="page-num">73</span>
+  <h3>Section Ten</h3>
+  <h1 style="font-size: 28pt; margin-bottom: 20px;">Appendix I</h1>
+  <div class="accent-bar" style="margin: 0 auto 20px;"></div>
+  <p style="font-size: 11pt; color: #555; max-width: 280px; margin: 0 auto;">The Human Potential Index includes 33 constructs central to unlocking human potential, with academic scale references.</p>
+</div>
+
+<div class="page">
+  <span class="page-num">74</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Health &amp; Vitality</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am healthy.</li>
+      <li>I feel energized.</li>
+      <li>I am able to take adequate time to rest and recover.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Subjective Vitality Scale (Ryan &amp; Frederick, 1997)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">75</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Financial Wellbeing</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am financially secure.</li>
+      <li>My finances are rarely a source of stress for me.</li>
+      <li>I rarely worry about money.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: InCharge Financial Distress/Financial Well-Being Scale (Prawitz et al., 2006)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">76</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Psychological Safety</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>It is safe to take a risk with people I am close to.</li>
+      <li>I am able to bring up problems and tough issues with others I am close to.</li>
+      <li>My unique skills and talents are valued and utilized by those I am close to.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Team Psychological Safety Scale (Edmondson, 1999)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">77</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Resilience</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I tend to bounce back quickly after hard times.</li>
+      <li>It does not take me long to recover from a stressful event.</li>
+      <li>I usually come through difficult times with little trouble.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Brief Resilience Scale (Smith et al.)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">78</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Personal Autonomy</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I&rsquo;m free to do things in my own way.</li>
+      <li>I feel my choices express my &ldquo;true self&rdquo;.</li>
+      <li>I am free to do what interests me.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Balanced Measure of Psychological Needs Scale (Sheldon &amp; Hilpert, 2012)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">79</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">High Quality Relationships</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I do not have any difficulty expressing my feelings to people I am close to.</li>
+      <li>I try to develop meaningful relationships with others.</li>
+      <li>I take the time to understand people I am close to.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">High Quality Relationships Scale (Carmeli, Brueller, &amp; Dutton, 2009)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">80</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Self-Awareness</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I actively attempt to understand myself as best as possible.</li>
+      <li>I am aware of my inner thoughts and feelings.</li>
+      <li>I am in touch with my motives and desires.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Authenticity Inventory (AI-3) (Kernis &amp; Goldman)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">81</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Healthy Selfishness</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I balance my own needs with the needs of others.</li>
+      <li>I have healthy boundaries (e.g., I protect my needs).</li>
+      <li>I have a healthy form of selfishness that does not hurt others.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Healthy Selfishness Scale (Kaufman &amp; Jauk)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">82</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Self-Compassion</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am there for myself in times of need.</li>
+      <li>During tough times, I am kind to myself.</li>
+      <li>I treat myself like a good friend in times of need.</li>
+    </ul>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">83</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Intrinsic Motivation</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>My work is aligned with my deepest interests.</li>
+      <li>My work is enjoyable.</li>
+      <li>My work makes me feel vital and alive.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Sheldon&rsquo;s Self-Concordance Model (Sheldon &amp; Elliot, 1999)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">84</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Strengths Discovery &amp; Alignment</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am aware of my greatest strengths.</li>
+      <li>I regularly use my strengths.</li>
+      <li>I try to use my strengths in new ways.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: VIA Survey of Character Strengths (Peterson &amp; Seligman, 2004)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">85</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Personal Values</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am aware of my personal values that are most important to me.</li>
+      <li>I try to align my actions with my personal values.</li>
+      <li>I hold steadfast to my personal values, even when they&rsquo;re challenged.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Schwartz Value Survey (Schwartz et al., 2012)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">86</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Self-Regulation</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am able to accomplish the goals I set for myself.</li>
+      <li>I set goals for myself and keep track of my progress.</li>
+      <li>I have a lot of willpower.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Self Regulation Questionnaire (Brown, Miller, &amp; Lawendowski)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">87</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Mastery</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am highly effective at the things I do.</li>
+      <li>I am almost always able to accomplish what I try for.</li>
+      <li>I often fulfill my goals.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Self Liking/Self Competence Scale (Tafarodi &amp; Swann, 2001)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">88</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Self-Esteem</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am very comfortable with myself.</li>
+      <li>I am secure in my sense of self-worth.</li>
+      <li>I like myself.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Self Liking/Self Competence Scale (Tafarodi &amp; Swann, 2001)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">89</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Optimism</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am optimistic about my future in general.</li>
+      <li>I have a positive outlook on life.</li>
+      <li>I expect more good things in my life than bad.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Comprehensive Inventory of Thriving (Su, Tay, &amp; Diener, 2014)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">90</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Gratitude</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I have so much in life to be thankful for.</li>
+      <li>When I look at the world I see so much to be grateful for.</li>
+      <li>If I had to list everything that I felt grateful for, it would be a very long list.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Gratitude Scale (GQ-6) (McCullough, Emmons, &amp; Tsang, 2002)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">91</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Curiosity</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I view challenging situations as an opportunity to grow and learn.</li>
+      <li>I find it fascinating to learn new information.</li>
+      <li>I am always looking for experiences that challenge how I think about myself and the world.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Five Dimensional Curiosity Scale Revised (Kashdan et al., 2020)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">92</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Compassion for Others</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am a very compassionate person.</li>
+      <li>Taking care of others gives me a warm feeling inside.</li>
+      <li>When I see someone hurt or in need, I feel a powerful urge to take care of them.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Dispositional Positive Emotions Scale (Shiota, Keltner, &amp; John, 2006)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">93</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Personal Growth Mindset</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am constantly striving for personal growth.</li>
+      <li>I am constantly striving to improve myself.</li>
+      <li>I constantly strive to be a better person.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Psychological Well Being (Ryff, 1989)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">94</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Progress</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I have clear short term goals.</li>
+      <li>I regularly make progress on my most important goals.</li>
+      <li>I have the resources I need to make regular progress on my goals.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: The Progress Principle (Amabile &amp; Kramer, 2011)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">95</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Meaningful Contribution</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>My work makes a difference.</li>
+      <li>My work has a positive impact.</li>
+      <li>My work makes a contribution to society.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Mattering Index (Elliott, Kao, &amp; Grant, 2004)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">96</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Mattering</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>Often, people trust me with things that are important to them.</li>
+      <li>People tend to rely on me for support.</li>
+      <li>When people need help, they come to me.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Mattering Index (Elliott, Kao, &amp; Grant, 2004)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">97</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Passion</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>My work is in harmony with other aspects of myself.</li>
+      <li>My work is in harmony with the other activities in my life.</li>
+      <li>When I&rsquo;m engaged in my work, it makes me feel good about who I am.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Passion Scale (Vallerand et al., 2003)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">98</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Purpose &amp; Meaning</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I have a personal purpose in life that will help the good of humankind.</li>
+      <li>I feel as though I have some important task to fulfill in this lifetime.</li>
+      <li>I feel a great responsibility and duty to accomplish a personal mission in life.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">CSAS (Kaufman, 2018); Influenced by: MLQ (Steger et al., 2006)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">99</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Flow &mdash; Absorption</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I often lose all sense of time during my day-to-day activities.</li>
+      <li>I often get completely absorbed in what I am doing.</li>
+      <li>I often get completely lost in thought during my day-to-day activities.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Work Related Flow Inventory (Bakker, 2008); Flow Short Scale (Engeser &amp; Rheinberg, 2008)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">100</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Flow &mdash; Challenge &amp; Skill</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I feel just the right amount of challenge.</li>
+      <li>I know what I have to do each step of the way.</li>
+      <li>I often strike a good match between my skill and challenge level.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Work Related Flow Inventory (Bakker, 2008); Flow Short Scale (Engeser &amp; Rheinberg, 2008)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">101</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Positive Identity</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I continually strive toward becoming my ideal and best self.</li>
+      <li>My identity encompasses the use of my greatest strengths.</li>
+      <li>The different aspects of my self are all in harmony with each other.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Dutton&rsquo;s Framework for Positive Identity Construction (2010)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">102</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Hope</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>There are many ways for me to get the most important things in my life.</li>
+      <li>I can always find a way around any problem.</li>
+      <li>I am hopeful I can reach my goals even if I have to take a different route.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Adult Hope Scale (Snyder et al., 1991)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">103</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Inspiration in Life</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I frequently feel inspired.</li>
+      <li>My work feels compelling.</li>
+      <li>I am inspired by the work I do.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Inspiration Scale (Thrash &amp; Elliot, 2003)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">104</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Peak Experiences</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I often have peak experiences in which I feel new horizons and possibilities opening up.</li>
+      <li>I often have peak experiences in which I feel one with all people and things on this planet.</li>
+      <li>I often have peak experiences in which I feel a profound transcendence of my selfish concerns.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">CSAS (Kaufman, 2018)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">105</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Creativity</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I come up with novel ideas that tend to be useful.</li>
+      <li>I come up with lots of novel ideas at work.</li>
+      <li>My ideas tend to be very innovative.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">Influenced by: Short Scale of Creative Self (Karwowski et al., 2018)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">106</span>
+  <div class="construct-card">
+    <div class="accent-bar"></div>
+    <div class="construct-name">Self-Actualization</div>
+    <div class="section-label">Questions</div>
+    <ul class="question-list">
+      <li>I am all that I could be.</li>
+      <li>I am operating close to my full capacity.</li>
+      <li>I am fulfilling my full potential.</li>
+    </ul>
+    <div class="divider"></div>
+    <div class="section-label">Scale Reference</div>
+    <p class="scale-text">CSAS (Kaufman, 2018)</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">107</span>
+  <h2 style="font-size: 16pt;">Human Potential Index Methods Overview</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-size: 10pt; color: #555; margin-bottom: 8px;">by Jeff Smith, PhD</p>
+    <p>Developed by Courtney Bigony, MAPP, Dr. Jeff Smith, and Dr. Scott Barry Kaufman, the HPI is currently the most complete measure of human potential that quantifies 33 human needs, mindsets, skills, and behaviors that lead to thriving.</p>
+    <p>Organizations can use the HPI to determine if they are building positive technology and individuals can take it to assess their level of thriving.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">108</span>
+  <h3>HPI Methods Overview</h3>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p>The HPI underwent a rigorous psychometric validation process. An extensive literature review was conducted. Over 50 validated scales with over 1300 validated questions were considered for potential inclusion.</p>
+    <p>The HPI currently includes 33 constructs from the latest scientific research across positive psychology, positive organizational scholarship, humanistic psychology, and organizational psychology.</p>
+    <p>Over 300 questions were reused, created, adapted, refined, tested, and validated during four rounds of psychometric validation with a global sample of over 2100 full-time employees. All final themes loaded on a general factor of Reaching One&rsquo;s Highest Potential. All final themes include questions with a minimum &alpha; &gt; 0.7.</p>
+    <p>Please reach out to <strong>courtneybigony.com</strong> if you would like to discuss your research or suggest additional constructs.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">109</span>
+  <h2>Acknowledgements</h2>
+  <div class="accent-bar"></div>
+  <div class="small-body">
+    <p style="font-size: 9.5pt; line-height: 1.6;">The following individuals at 15Five supported the development of the method: 15Five&rsquo;s founder, David Hassell, co-founders, Shane Metcalf and Nazar Ivaniv, COO Jim Morrisroe, CMO Julia Stead, as well as key contributors including Courtney Yazzie, Joe LaGrutta, Meesh Lin, Holly Kennedy, Kesh Vallot Shannon, Abbigail Christensen, Ramla Mahmood, Nata Karnaulskaya, Jenn Onyeagbako, Erik Rhoten, Josh Lankford, Vicky Irvin, Heather Blair, Chris Nicol, Carly Moss, TJ Vo, Zo Nicole, James Park, Ife Akinbolaji, Katia Suchkova, Shem Rajoon, Robert Enck, Baili Bigham, Oleksij Yanko, Ben Grossblatt, Dianne Frommelt, Cathlynn Carman, Colin Powell, Harry Kaplowitz, Aliona Tudan, Chad Bender, Jo&atilde;o Guerreiro, as well as the first dozen employees who contributed to 15Five&rsquo;s foundational product, business, and culture including Krystian Cybulski, Emily Diaz, Paul Logston, David Mizne, Meilena Hauslendale, Stacey Hurst, Carson Adam, Priscilla Zorrilla, Yaroslav Skorokhid, Raymond Zhou, Hollie Aghajani, Mykhailo Grabovskyi, Rafael Fernandes, Bartek Grabski, Patrick Sanders, Robert Angyal, Tim Rafferty, Kristina Mashchakevych, Mitchell Yee, Luke Guevara, Lior Givol, Jennie Yang, Seth Eisenberg, Kaelon Russell, Brad McGinity, and all other 15Five team members.</p>
+  </div>
+  <span class="footer-line">&copy; 2026 Positive Product Design. All rights reserved.</span>
+</div>
+
+<div class="page">
+  <span class="page-num">110</span>
+  <div class="final-page">
+    <p>&copy; 2026 Positive Product Design.<br>All rights reserved.</p>
+  </div>
+</div>
+
+</body>
+</html>
