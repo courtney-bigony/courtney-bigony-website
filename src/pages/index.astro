@@ -96,11 +96,6 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
           <p class="text-[18px] leading-[1.7] text-secondary">
             I have a masters in the science of thriving from Penn, where I studied with Martin Seligman, the father of positive psychology.
           </p>
-          <div class="flex flex-wrap gap-2">
-            {['Wellbeing', 'Optimism', 'Resilience', 'Strengths', 'Meaning', 'Relationships', 'Personal Growth', 'Self-Actualization'].map(dim => (
-              <span class="px-3 py-1.5 text-[11px] uppercase tracking-[0.1em] font-medium text-accent bg-accent-light rounded-full">{dim}</span>
-            ))}
-          </div>
         </div>
         <div class="aspect-video w-full rounded-sm overflow-hidden shadow-lg">
           <button class="yt-facade w-full h-full relative cursor-pointer border-0 p-0 bg-black" data-id="Cq3tSSQzhOA" data-title="Meet Courtney Bigony" aria-label="Play video: Meet Courtney Bigony">
@@ -211,10 +206,16 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
           <p class="text-[18px] leading-[1.7] text-secondary mb-8">
             Tech companies: build software aligned to the science of human thriving.
           </p>
-          <a href="/guides/PPD_Guide2026.pdf" data-guide="ppd" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-3.5 border border-charcoal text-charcoal text-[17px] font-medium rounded-full hover:bg-charcoal hover:text-white transition-colors">
-            Download the Guide
-            <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
-          </a>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" data-contact-modal class="inline-flex items-center gap-2 px-8 py-3.5 bg-charcoal text-white text-[17px] font-medium rounded-full hover:bg-charcoal/85 transition-colors cursor-pointer">
+              Partner with Courtney
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M8 2l5 5-5 5"/></svg>
+            </button>
+            <a href="/guides/PPD_Guide2026.pdf" data-guide="ppd" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-3.5 border border-charcoal text-charcoal text-[17px] font-medium rounded-full hover:bg-charcoal hover:text-white transition-colors">
+              Download the Guide
+              <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 1v10M2 8l5 5 5-5"/></svg>
+            </a>
+          </div>
 
         </div>
       </div>
