@@ -15,3 +15,18 @@ html, body {
   --color-border: #E5E5EA;
   --color-surface: #F5F5F7;
 }
+
+/* Elfsight Instagram Feed — override profile header alignment to match site layout */
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="Header"],
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="Profile"],
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="header"],
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="profile"] {
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="Header"] *,
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="Profile"] *,
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="header"] *,
+.elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 [class*="profile"] * {
+  text-align: left !important;
+}
