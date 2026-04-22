@@ -16,11 +16,12 @@ html, body {
   --color-surface: #F5F5F7;
 }
 
-/* Elfsight Instagram Feed — center the widget within the section on desktop */
+/* Elfsight Instagram Feed — center the 1000px-max widget within its wider parent */
 @media (min-width: 768px) {
-  .elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 {
-    display: flex !important;
-    justify-content: center !important;
+  .elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29,
+  #eapps-instagram-feed-1 {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
