@@ -16,6 +16,14 @@ html, body {
   --color-surface: #F5F5F7;
 }
 
+/* Elfsight Instagram Feed — center the fixed-width posts slider within the section on desktop */
+@media (min-width: 768px) {
+  .eapps-instagram-feed-posts-slider {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 /* Elfsight Instagram Feed — left-align profile header on mobile only */
 @media (max-width: 767px) {
   .eapps-instagram-feed-header,
