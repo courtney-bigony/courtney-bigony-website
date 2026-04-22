@@ -44,24 +44,3 @@ html, body {
   }
 }
 
-/* Elfsight Instagram Feed — center post grid on desktop when posts are smaller than container */
-@media (min-width: 768px) {
-  /* Center the outer posts slider wrapper */
-  .eapps-instagram-feed-posts-container,
-  .eapps-instagram-feed-posts-slider {
-    display: flex !important;
-    justify-content: center !important;
-  }
-  /* Shrink the inline-styled slider-inner to content width so posts don't leave a right-side gap */
-  .eapps-instagram-feed-posts-slider-inner {
-    width: auto !important;
-    max-width: 100% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  /* Center individual slides within the carousel */
-  .eapps-instagram-feed-posts-inner,
-  .eapps-instagram-feed-posts-view {
-    justify-content: center !important;
-  }
-}
