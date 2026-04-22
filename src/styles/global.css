@@ -43,3 +43,19 @@ html, body {
     margin-left: 0 !important;
   }
 }
+
+/* Elfsight Instagram Feed — center post grid on desktop when posts are smaller than container */
+@media (min-width: 768px) {
+  .eapps-instagram-feed-posts-container,
+  .eapps-instagram-feed-posts-grid,
+  .eapps-instagram-feed-posts-slider,
+  [class*="eapps-instagram-feed-posts"] {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .eapps-instagram-feed-posts-inner,
+  .eapps-instagram-feed-posts-item-wrapper {
+    justify-content: center !important;
+  }
+}
