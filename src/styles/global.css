@@ -16,16 +16,11 @@ html, body {
   --color-surface: #F5F5F7;
 }
 
-/* Elfsight Instagram Feed — only apply the manual 1000px width on laptop/desktop (≥1024px).
-   Below that, unset the width cap so the widget can render responsively. */
-@media (max-width: 1023px) {
-  #eapps-instagram-feed-1,
-  .elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 {
-    max-width: none !important;
-    width: 100% !important;
-  }
-  .eapps-instagram-feed-posts-slider-inner[style*="width"] {
-    width: 100% !important;
+/* Elfsight Instagram Feed — center the 1000px widget on desktop */
+@media (min-width: 1024px) {
+  #eapps-instagram-feed-1 {
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
