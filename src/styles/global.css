@@ -16,35 +16,4 @@ html, body {
   --color-surface: #F5F5F7;
 }
 
-/* Elfsight Instagram Feed — center the 1000px-max widget within its wider parent */
-@media (min-width: 768px) {
-  .elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29,
-  #eapps-instagram-feed-1 {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-/* Elfsight Instagram Feed — mobile overrides */
-@media (max-width: 767px) {
-  /* Left-align the profile header */
-  .eapps-instagram-feed-header,
-  .eapps-instagram-feed-header-inner {
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-  }
-  .eapps-instagram-feed-header-user,
-  .eapps-instagram-feed-header-stats,
-  .eapps-instagram-feed-header-follow-button-wrapper {
-    justify-content: flex-start !important;
-    text-align: left !important;
-  }
-  /* Ensure the widget fills the mobile container so the responsive column logic works */
-  #eapps-instagram-feed-1,
-  .elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29 {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-}
 
