@@ -28,28 +28,16 @@ html, body {
 /* Elfsight Instagram Feed — left-align profile header on mobile only */
 @media (max-width: 767px) {
   .eapps-instagram-feed-header,
-  .eapps-instagram-feed-header-inner,
-  .eapps-instagram-feed-title-container {
+  .eapps-instagram-feed-header-inner {
     justify-content: flex-start !important;
     align-items: flex-start !important;
     text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-    padding-left: 0 !important;
   }
   .eapps-instagram-feed-header-user,
   .eapps-instagram-feed-header-stats,
   .eapps-instagram-feed-header-follow-button-wrapper {
     justify-content: flex-start !important;
     text-align: left !important;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-  }
-  .eapps-instagram-feed-container,
-  .eapps-instagram-feed-content,
-  .eapps-instagram-feed-header-container {
-    padding-left: 0 !important;
-    margin-left: 0 !important;
   }
 }
 
