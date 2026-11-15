@@ -326,8 +326,21 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
           Follow for insights on the science of thriving and purpose.
         </p>
       </div>
-      <!-- Elfsight Instagram Feed | Website IG Feed -->
-      <div class="elfsight-app-6092415c-6533-4ad2-9543-68f0de5d7d29" data-elfsight-app-lazy></div>
+      <!-- Hand-picked Instagram posts (Courtney chooses these; swap url + img to change) -->
+      <ul class="social-grid" role="list">
+        {[
+          { url: 'https://www.instagram.com/p/DXVMZ0Tj6OQ/', img: '/images/social/ig-post-1.webp', caption: 'I studied the science of thriving at Penn. Here’s what actually helps people thrive' },
+          { url: 'https://www.instagram.com/p/DXaV6eDjxvk/', img: '/images/social/ig-post-2.webp', caption: 'I studied the science of thriving at Penn. Here’s what truly helps people thrive' },
+          { url: 'https://www.instagram.com/p/DXfjGSaDzbC/', img: '/images/social/ig-post-3.webp', caption: 'I studied the science of thriving at Penn. This is the mindset you need to thrive' },
+        ].map((post) => (
+          <li>
+            <a href={post.url} target="_blank" rel="noopener" class="social-card group" aria-label={`Instagram post: ${post.caption} (opens in a new tab)`}>
+              <img src={post.img} alt="" width="1080" height="1350" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <svg class="social-card-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </li>
+        ))}
+      </ul>
       <div class="flex items-center justify-start md:justify-center gap-8 mt-10 md:mt-14">
         <a href="https://www.instagram.com/courtneybigony/" target="_blank" rel="noopener" class="text-secondary hover:text-accent transition-colors" aria-label="Instagram">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
@@ -691,6 +704,45 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
   }
   .swiper-pagination-bullet-active {
     background: #6B917D !important;
+  }
+
+  /* ─── Social: 3 hand-picked posts, scaled to sit with the media cards ─── */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 768px) {
+    .social-grid { gap: 24px; }
+  }
+  .social-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #F5F5F7;
+  }
+  .social-card:focus-visible {
+    outline: 2px solid #6B917D;
+    outline-offset: 3px;
+  }
+  .social-card-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #fff;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.45));
+  }
+  @media (max-width: 767px) {
+    .social-card-icon { width: 16px; height: 16px; top: 6px; right: 6px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .social-card img { transition: none; transform: none !important; }
   }
 </style>
 
