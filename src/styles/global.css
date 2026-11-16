@@ -16,12 +16,5 @@ html, body {
   --color-surface: #F5F5F7;
 }
 
-/* Elfsight Instagram Feed — center the 1000px widget on desktop */
-@media (min-width: 1024px) {
-  #eapps-instagram-feed-1 {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
 
 
