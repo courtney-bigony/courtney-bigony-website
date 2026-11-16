@@ -111,7 +111,7 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
 
 
   <!-- ═══════════════════════════════════════════ TECH ADVISOR / HPI (full-bleed) ═══════════════════════════════════════════ -->
-  <section id="work" class="flex flex-col lg:block relative w-full lg:min-h-[85vh]" style="background: #f5f5f5;">
+  <section id="work" class="flex flex-col md:block relative w-full md:min-h-[85vh]" style="background: #f5f5f5;">
     <img
       src="/images/headshots/full-body-left.webp"
       alt="Courtney Bigony"
@@ -120,11 +120,11 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
       loading="lazy"
       decoding="async"
       id="work-img"
-      class="w-full object-cover object-[30%_top] lg:absolute lg:inset-0 lg:h-full lg:object-[left_20%]"
+      class="w-full object-cover object-[30%_top] md:absolute md:inset-0 md:h-full md:object-[left_20%]"
     />
-    <div id="work-content" class="relative z-10 py-12 lg:py-0 lg:flex lg:items-center lg:min-h-[85vh] lg:py-24">
+    <div id="work-content" class="relative z-10 py-12 md:py-0 md:flex md:items-center md:min-h-[85vh] md:py-24">
       <div class="w-full max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div id="work-text" class="lg:ml-auto">
+        <div id="work-text" class="md:ml-auto">
           <p class="text-[16px] uppercase tracking-[0.2em] font-semibold mb-5" style="color: #6B917D;">What I Do</p>
           <h2 class="font-serif" style="font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1C1C1E; margin-bottom: 24px;">
             Tech Advisor
@@ -754,8 +754,8 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     overflow: hidden;
   }
 
-  /* ─── Work section: stacked layout below lg ─── */
-  @media (max-width: 1023px) {
+  /* ─── Work section: stacked layout below md (overlay from 768px up) ─── */
+  @media (max-width: 767px) {
     #work-content {
       background: #fff;
     }
@@ -882,11 +882,18 @@ import LayoutV3b from '../layouts/LayoutV3b.astro';
     }
   }
 
-  /* ─── Work section: text column constrained only at desktop ─── */
-  @media (min-width: 1024px) {
+  /* ─── Work section: text column constrained from tablet up ─── */
+  @media (min-width: 768px) {
     #work-text {
       max-width: min(500px, 48%);
       padding-left: 24px;
+    }
+  }
+  /* Narrow laptop windows: the photo scales up with the taller text column,
+     so slide it left to keep Courtney clear of the copy */
+  @media (min-width: 768px) and (max-width: 899px) {
+    #work-img {
+      object-position: -150px 20%;
     }
   }
 </style>
